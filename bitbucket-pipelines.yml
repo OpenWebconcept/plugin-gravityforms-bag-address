@@ -1,0 +1,39 @@
+pipelines:
+  custom:
+    manually:
+      - step:
+          image: yardinternet/php7.2-composer
+          name: unit test
+          caches:
+            - composer
+            - vendor-directory
+          script:
+            - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
+            - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
+            - ./vendor/bin/phpstan analyze
+  branches:
+    master:
+      - step:
+          image: yardinternet/php7.2-composer
+          name: unit test
+          caches:
+            - composer
+            - vendor-directory
+          script:
+            - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
+            - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
+            - ./vendor/bin/phpstan analyze
+      - step:
+          image: node:10.15
+          name: jest unit test
+          caches:
+            - node
+          script:
+            - mv .npmrc.example .npmrc
+            - npm install
+            - npm install jest -g
+            - jest
+
+definitions:
+  caches:
+    vendor-directory: vendor

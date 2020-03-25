@@ -1,0 +1,702 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OWC GravityForms BAG Address\n"
+"POT-Creation-Date: 2020-03-25 10:23+0100\n"
+"PO-Revision-Date: 2020-03-25 10:23+0100\n"
+"Last-Translator: Edwin Siebel <edwin@yard.nl>\n"
+"Language-Team: Yard Internet <info@yard.nl>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-KeywordsList: __;_x;_e;_ex;_n;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: tests\n"
+"X-Poedit-SearchPathExcluded-1: docs\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
+"X-Poedit-SearchPathExcluded-3: languages\n"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:27
+msgid "BAG Address"
+msgstr "BAG adres"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:95
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:104
+msgid "This field is required. Please enter a complete address."
+msgstr "Dit veld is verplicht. Voer een volledig adres in."
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:121
+msgid "Postcode"
+msgstr "Postcode"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:126
+msgid "Homenumber"
+msgstr "Huisnummer"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:131
+msgid "Homenumber addition"
+msgstr "Huisnummer toevoeging"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:134
+msgid "Search"
+msgstr "Zoek"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:140
+msgid "Address"
+msgstr "Adres"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:146
+msgid "City"
+msgstr "Stad"
+
+#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:152
+msgid "State"
+msgstr "Provincie"
+
+#: src/Yard/GravityForms/BAGAddress/BAGLookup.php:68
+msgid "No results found"
+msgstr "Geen resultaten gevonden"
+
+#: src/Yard/GravityForms/BAGAddress/BAGLookup.php:77
+msgid "1 result found"
+msgstr "1 resultaat gevonden"
+
+#: src/Yard/GravityForms/BAGAddress/BAGLookup.php:91
+msgid ""
+"Found too many results. Try to make the address more specific. For example "
+"with a house number addition"
+msgstr ""
+"Teveel resultaten gevonden. Probeer het adres specifieker te maken. "
+"Bijvoorbeeld met een huisnummer toevoeging"
+
+#: src/Yard/GravityForms/GravityFormsAddon.php:89
+msgid "No remote connector"
+msgstr "Geen remote connector"
+
+#: src/Yard/GravityForms/GravityFormsAddon.php:112
+msgid "Remote connector settings"
+msgstr "Remote connector instellingen"
+
+#: src/Yard/GravityForms/GravityFormsAddon.php:115
+msgid "Registered connectors"
+msgstr "Geregistreerde connectoren"
+
+#: src/Yard/IRMA/GravityForms/Fields/IrmaLaunchQR.php:33
+msgid "Get IRMA attributes"
+msgstr "Haal IRMA attributen op"
+
+#: src/Yard/IRMA/GravityForms/Fields/IrmaLaunchQR.php:54
+msgid "Please fetch your IRMA attributes."
+msgstr "Haal uw IRMA attributen op."
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:3
+msgid "IRMA Attribute"
+msgstr "IRMA attribuut"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:13
+msgid "IRMA Header text"
+msgstr "IRMA Header tekst"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:21
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:75
+msgid "QR Code"
+msgstr "QR Code"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:25
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:81
+msgid "Display as pop-up?"
+msgstr "Weergeven als pop-up?"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:30
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:86
+msgid "Button label"
+msgstr "Knoplabel"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:37
+msgid "ID attribute fullname"
+msgstr "ID attribuut volledige naam"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:45
+msgid "ID attribute BSN"
+msgstr "ID attribuut BSN"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:54
+msgid "ID attribute city"
+msgstr "ID attribuut stad"
+
+#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:64
+msgid "City to check"
+msgstr "Stad controleren"
+
+#: src/Yard/IRMA/IRMAAddOn.php:119
+msgid "Irma Settings"
+msgstr "IRMA instellingen"
+
+#: src/Yard/IRMA/IRMAAddOn.php:123 src/Yard/IRMA/IRMAAddOn.php:124
+msgid "Server endpoint"
+msgstr "Server endpoint"
+
+#: src/Yard/IRMA/IRMAAddOn.php:133 src/Yard/IRMA/IRMAAddOn.php:134
+msgid "Server token"
+msgstr "Server token"
+
+#: src/Yard/IRMA/IRMAAddOn.php:143 src/Yard/IRMA/IRMAAddOn.php:144
+msgid "BSN attribute fieldname"
+msgstr "BSN attribute veldnaam"
+
+#: src/Yard/OpenZaak/Addon.php:84
+msgid "OpenZaak Settings"
+msgstr "OpenZaak instellingen"
+
+#: src/Yard/OpenZaak/Addon.php:88
+msgid "OpenZaak url"
+msgstr "OpenZaak url"
+
+#: src/Yard/OpenZaak/Addon.php:97
+msgid "OpenZaak token"
+msgstr "OpenZaak token"
+
+#: src/Yard/OpenZaak/Addon.php:106
+msgid "RSIN identifier"
+msgstr "RSIN identifier"
+
+#: src/Yard/OpenZaak/Addon.php:115
+msgid "Attributes"
+msgstr "Attributen"
+
+#: src/Yard/OpenZaak/GravityForms/views/select-attribute.php:6
+msgid "Case property"
+msgstr "Case eigenschap"
+
+#: src/Yard/OpenZaak/GravityForms/views/select-attribute.php:8
+msgid "Choose attribute"
+msgstr "Kies attribuut"
+
+#: src/Yard/OpenZaak/views/add-attributes.php:8
+msgid "Add attribute"
+msgstr "Attribuut toevoegen"
+
+#: src/Yard/OpenZaak/views/add-attributes.php:11
+msgid "Name as identification"
+msgstr "Naam ter herkenning"
+
+#: src/Yard/OpenZaak/views/add-attributes.php:12
+msgid "Attribute name of OpenZaak"
+msgstr "Attribuut naam van OpenZaak"
+
+#, fuzzy
+#~| msgid "PDC item attributes"
+#~ msgid "Kies attribuut"
+#~ msgstr "PDC items attributen"
+
+#~ msgid "Case eigenschap"
+#~ msgstr "Case eigenschap"
+
+#~ msgid "No connector found"
+#~ msgstr "Geen remote connector gevonden"
+
+#~ msgid "Data"
+#~ msgstr "Gegevens"
+
+#~ msgid "General"
+#~ msgstr "Algemeen"
+
+#~ msgid "Title alternative"
+#~ msgstr "Alternatieve titel"
+
+#~ msgid "Use this option if you want to use an alternative title"
+#~ msgstr ""
+#~ "Gebruik deze mogelijkheid als de website een alternatieve titel gebruikt"
+
+#~ msgid "Synonyms"
+#~ msgstr "Synoniemen"
+
+#~ msgid ""
+#~ "Use this option to add an comma separated list of synonyms or related "
+#~ "terms"
+#~ msgstr ""
+#~ "Gebruik deze mogelijkheid om een komma gescheiden lijst van synoniemen of "
+#~ "gerelateerde termen mee te geven "
+
+#~ msgid "Active"
+#~ msgstr "Actief"
+
+#~ msgid "Is this product active yes/no"
+#~ msgstr "Is dit product op dit moment actief ja/nee"
+
+#~ msgid "Make an appointment"
+#~ msgstr "Afspraak maken"
+
+#~ msgid "Is an appointment obligatory for this product yes/no?"
+#~ msgstr "Is het nodig voor dit product een afspraak te maken ja/nee?"
+
+#~ msgid "Appointment button title"
+#~ msgstr "Afspraak button titel"
+
+#~ msgid "Leave empty for default value usage"
+#~ msgstr "Leeg laten als de standaard waarde gebruikt dient te worden"
+
+#~ msgid "Appointment URL"
+#~ msgstr "Afspraak URL"
+
+#~ msgid ""
+#~ "Use this field to get a specific URL for the appointment button. URL "
+#~ "including http(s)://"
+#~ msgstr ""
+#~ "Gebruik dit veld als de afspraak knop met een specifieke URL ingericht "
+#~ "moet worden. URL inclusief http(s)://"
+
+#~ msgid "Appointment meta"
+#~ msgstr "Afspraak meta"
+
+#~ msgid ""
+#~ "Use this field if the appointment method leverages an special data "
+#~ "attribute like eg. GravityForms-id (currently not in use)"
+#~ msgstr ""
+#~ "Gebruik dit veld als de afspraak knop via een hier ingevoerde gegeven "
+#~ "werkt (bv GravityForms id, of andere vorm van koppelings data, momenteel "
+#~ "nog niet in gebruik)"
+
+#~ msgid "Links"
+#~ msgstr "Links"
+
+#~ msgid "Add new link"
+#~ msgstr "Voeg nieuwe link toe"
+
+#~ msgid "Link title"
+#~ msgstr "Link titel"
+
+#~ msgid "Use the title to replace the URL"
+#~ msgstr "Wordt gebruikt om de link te tonen ipv de URL"
+
+#~ msgid "Link URL"
+#~ msgstr "Link URL"
+
+#~ msgid "URL including http(s)://"
+#~ msgstr "URL inclusief http(s)://"
+
+#~ msgid "Downloads"
+#~ msgstr "Downloads"
+
+#~ msgid "Add new download"
+#~ msgstr "Voeg nieuwe download toe"
+
+#~ msgid "Download title"
+#~ msgstr "Download titel"
+
+#~ msgid "Download URL"
+#~ msgstr "Download URL"
+
+#, fuzzy
+#~| msgid "Download title"
+#~ msgid "Download shortcode url"
+#~ msgstr "Download titel"
+
+#~ msgid "Forms"
+#~ msgstr "Formulieren"
+
+#~ msgid "Add new form"
+#~ msgstr "Voeg nieuwe formulier toe"
+
+#~ msgid "Form title"
+#~ msgstr "Formulieren titel"
+
+#~ msgid "Form URL"
+#~ msgstr "Formulieren URL"
+
+#~ msgid "Government standards"
+#~ msgstr "Overheid standaard"
+
+#~ msgid "UPL name"
+#~ msgstr "UPL naam"
+
+#~ msgid "Example: aanduiding naamgebruik"
+#~ msgstr "Bijvoorbeeld: aanduiding naamgebruik"
+
+#~ msgid "UPL resource"
+#~ msgstr "UPL resource"
+
+#~ msgid ""
+#~ "Example: http://standaarden.overheid.nl/owms/terms/"
+#~ "{aanduiding_naamgebruik}"
+#~ msgstr ""
+#~ "Bijvoorbeeld: http://standaarden.overheid.nl/owms/terms/"
+#~ "{aanduiding_naamgebruik}"
+
+#~ msgid "Other"
+#~ msgstr "Overig"
+
+#~ msgid "Notes"
+#~ msgstr "Vrij notitieveld"
+
+#~ msgid "(the law, authority, local regulations, etc.)"
+#~ msgstr "(wetgeving, bevoegd gezag, uitvoerder, lokale regelgeving)"
+
+#~ msgid "PDC item"
+#~ msgstr "PDC item"
+
+#~ msgid "PDC theme"
+#~ msgstr "PDC thema"
+
+#~ msgid "PDC subtheme"
+#~ msgstr "PDC subthema"
+
+#~ msgid "PDC owner"
+#~ msgstr "PDC eigenaar"
+
+#~ msgid "Add new pdc item"
+#~ msgstr "Voeg nieuwe pdc item toe"
+
+#~ msgid "Edit pdc item"
+#~ msgstr "Bewerk pdc Item"
+
+#~ msgid "New pdc item"
+#~ msgstr "Voeg nieuwe pdc item toe"
+
+#~ msgid "View pdc item"
+#~ msgstr "Bekijk pdc item"
+
+#~ msgid "View pdc items"
+#~ msgstr "Bekijk pdc items"
+
+#~ msgid "Search pdc items"
+#~ msgstr "Zoek pdc items"
+
+#~ msgid "No pdc items found."
+#~ msgstr "Geen pdc items gevonden."
+
+#~ msgid "No pdc items found in Trash."
+#~ msgstr "Geen pdc items gevonden in prullenbak."
+
+#~ msgid "All pdc items"
+#~ msgstr "Alle pdc items"
+
+#~ msgid "PDC items archives"
+#~ msgstr "PDC items archieven"
+
+#~ msgid "Insert into pdc item"
+#~ msgstr "Voeg in pdc Item"
+
+#~ msgid "Featured image"
+#~ msgstr "Aanbevolen afbeelding"
+
+#~ msgid "Set featured image"
+#~ msgstr "Stel aanbevolen afbeelding in"
+
+#~ msgid "PDC items"
+#~ msgstr "PDC items"
+
+#~ msgid "Parent pdc items:"
+#~ msgstr "Hoofd pcd items:"
+
+#~ msgid "Aspect"
+#~ msgstr "Aspect"
+
+#~ msgid "Type"
+#~ msgstr "Type"
+
+#~ msgid "Add new pdc theme"
+#~ msgstr "Voeg nieuwe pdc thema toe"
+
+#~ msgid "Edit pdc theme"
+#~ msgstr "Bewerk pdc thema"
+
+#~ msgid "New pdc theme"
+#~ msgstr "Voeg nieuwe pdc thema toe"
+
+#~ msgid "View pdc theme"
+#~ msgstr "Bekijk pdc thema"
+
+#~ msgid "View pdc themes"
+#~ msgstr "Bekijk pdc thema's"
+
+#~ msgid "Search pdc themes"
+#~ msgstr "Zoek pdc thema's"
+
+#~ msgid "No pdc themes found."
+#~ msgstr "Geen pdc thema's gevonden."
+
+#~ msgid "No pdc themes found in Trash."
+#~ msgstr "Geen pdc thema's gevonden in prullenbak."
+
+#~ msgid "All pdc themes"
+#~ msgstr "Alle pdc thema's"
+
+#~ msgid "PDC themes archives"
+#~ msgstr "PDC thema's archieven"
+
+#~ msgid "Insert into pdc theme"
+#~ msgstr "Voeg in pdc thema"
+
+#~ msgid "PDC themes"
+#~ msgstr "PDC thema's"
+
+#~ msgid "Parent pdc themes:"
+#~ msgstr "Hoofd pcd thema's:"
+
+#~ msgid "Add new pdc subtheme"
+#~ msgstr "Voeg nieuwe pdc subthema toe"
+
+#~ msgid "Edit pdc subtheme"
+#~ msgstr "Bewerk pdc subthema"
+
+#~ msgid "New pdc subtheme"
+#~ msgstr "Voeg nieuwe pdc subthema toe"
+
+#~ msgid "View pdc subtheme"
+#~ msgstr "Bekijk pdc subthema"
+
+#~ msgid "View pdc subthemes"
+#~ msgstr "Bekijk pdc subthema's"
+
+#~ msgid "Search pdc subthemes"
+#~ msgstr "Zoek pdc subthema's"
+
+#~ msgid "No pdc subthemes found in Trash."
+#~ msgstr "Geen pdc subthema's gevonden in prullenbak."
+
+#~ msgid "All pdc subthemes"
+#~ msgstr "Alle pdc subthema's"
+
+#~ msgid "PDC subthemes archives"
+#~ msgstr "PDC subthema's archieven"
+
+#~ msgid "PDC subtheme attributes"
+#~ msgstr "PDC subthema attributen"
+
+#~ msgid "Insert into pdc subtheme"
+#~ msgstr "Voeg in pdc subthema"
+
+#~ msgid "Parent pdc subthemes:"
+#~ msgstr "Hoofd pdc subthema's:"
+
+#~ msgid "PDC subthemes"
+#~ msgstr "PDC subthemas"
+
+#~ msgid "Portal"
+#~ msgstr "Portaal"
+
+#~ msgid "Portal URL"
+#~ msgstr "Portal URL"
+
+#~ msgid "Portal PDC item slug"
+#~ msgstr "Portal PDC item slug"
+
+#~ msgid "URL for PDC items in the portal, eg \"onderwerp\""
+#~ msgstr "URL voor PDC items in de portal, bv \"onderwerp\""
+
+#~ msgid "Base"
+#~ msgstr "Basis"
+
+#~ msgid "Submit"
+#~ msgstr "Verzenden"
+
+#~ msgid "Audience"
+#~ msgstr "Doelgroep"
+
+#~ msgid "All audiences"
+#~ msgstr "Alle doelgroepen"
+
+#~ msgid "Edit audience"
+#~ msgstr "Bewerk doelgroep"
+
+#~ msgid "View audience"
+#~ msgstr "Bekijk doelgroep"
+
+#~ msgid "Update audience"
+#~ msgstr "Update doelgroep"
+
+#~ msgid "Add new audience"
+#~ msgstr "Voeg nieuwe doelgroep toe"
+
+#~ msgid "New audience"
+#~ msgstr "Voeg nieuwe doelgroep toe"
+
+#~ msgid "Parent audience:"
+#~ msgstr "Hoofd doelgroep pagina:"
+
+#~ msgid "Search audience"
+#~ msgstr "Zoek doelgroep"
+
+#~ msgid "Separate tags with commas"
+#~ msgstr "Scheid tags met komma's"
+
+#~ msgid "Add or remove tags"
+#~ msgstr "Tags toevoegen of verwijderen"
+
+#~ msgid "Choose from the most used tags"
+#~ msgstr "Kies uit de meest gebruikte tags"
+
+#~ msgid "No audience found."
+#~ msgstr "Geen doelgroepen gevonden."
+
+#~ msgid "← Back to tags"
+#~ msgstr "← Terug naar tags"
+
+#~ msgid "Audiences"
+#~ msgstr "Doelgroepen"
+
+#~ msgid "Types"
+#~ msgstr "Typen"
+
+#~ msgid "Aspects"
+#~ msgstr "Aspecten"
+
+#~ msgid "Usage"
+#~ msgstr "Gebruik"
+
+#~ msgid "Usages"
+#~ msgstr "Gebruik"
+
+#~ msgid "Owner"
+#~ msgstr "Eigenaar"
+
+#~ msgid "Owners"
+#~ msgstr "Eigenaren"
+
+#~ msgid "View PDC item in portal"
+#~ msgstr "Bekijk PDC item in Portal"
+
+#~ msgid "View in Portal"
+#~ msgstr "Bekijk in Portal"
+
+#~ msgid "View &#8220;%s&#8221;"
+#~ msgstr "Bekijk &#8220;%s&#8221;"
+
+#~ msgid "The following plugins are required to use the PDC:"
+#~ msgstr "De volgende plugins zijn vereist om gebruik te maken van de PDC:"
+
+#~ msgid "Class does not exist"
+#~ msgstr "Klasse bestaat niet"
+
+#~ msgid "Inactive"
+#~ msgstr "Inactief"
+
+#~ msgid "Minimal version:"
+#~ msgstr "Minimale versie:"
+
+#~ msgid "The search term."
+#~ msgstr "De zoek term."
+
+#~ msgid "The limit."
+#~ msgstr "Het limiet."
+
+#~ msgid "Pagination"
+#~ msgstr "Paginering"
+
+#~ msgid "Connection type \"%s\" does not exist"
+#~ msgstr "Verbindingstype \"%s\" bestaat niet"
+
+#~ msgid "No audience found in Trash."
+#~ msgstr "Geen doelgroepen gevonden in prullenbak."
+
+#~ msgctxt "P2P titel"
+#~ msgid "PDC item"
+#~ msgstr "PDC item"
+
+#~ msgctxt "P2P titel"
+#~ msgid "PDC theme"
+#~ msgstr "PDC thema"
+
+#~ msgctxt "P2P titel"
+#~ msgid "PDC subtheme"
+#~ msgstr "PDC subthema"
+
+#~ msgctxt "P2P titel"
+#~ msgid "PDC owner"
+#~ msgstr "PDC Eigenaar"
+
+#~ msgctxt "Posttype definition"
+#~ msgid "PDC item"
+#~ msgstr "PDC item"
+
+#~ msgctxt "Posttype definition"
+#~ msgid "PDC items"
+#~ msgstr "PDC items"
+
+#~ msgctxt "Posttype definition"
+#~ msgid "PDC theme"
+#~ msgstr "PDC thema"
+
+#~ msgctxt "Posttype definition"
+#~ msgid "PDC themes"
+#~ msgstr "PDC themas"
+
+#~ msgctxt "Posttype definition"
+#~ msgid "PDC subtheme"
+#~ msgstr "PDC subthema"
+
+#~ msgctxt "Posttype definition"
+#~ msgid "PDC subthemes"
+#~ msgstr "PDC subthemas"
+
+#~ msgctxt "PDC instellingen subpagina"
+#~ msgid "Portal"
+#~ msgstr "Portal"
+
+#~ msgctxt "PDC settings subpage"
+#~ msgid "Base"
+#~ msgstr "Basis"
+
+#~ msgctxt "PDC settings subpage"
+#~ msgid "Submit"
+#~ msgstr "Opslaan"
+
+#~ msgctxt "PDC settings tab"
+#~ msgid "General"
+#~ msgstr "Algemeen"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Audience"
+#~ msgstr "Doelgroep"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Audiences"
+#~ msgstr "Doelgroepen"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Type"
+#~ msgstr "Type"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Types"
+#~ msgstr "Typen"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Aspect"
+#~ msgstr "Kenmerk"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Aspects"
+#~ msgstr "Kenmerken"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Usage"
+#~ msgstr "Toepassing"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Usages"
+#~ msgstr "Toepassingen"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Owner"
+#~ msgstr "Eigenaar"
+
+#~ msgctxt "Taxonomy definition"
+#~ msgid "Owners"
+#~ msgstr "Eigenaren"
+
+#~ msgctxt "preview button text"
+#~ msgid "View in Portal"
+#~ msgstr "Bekijk in Portal"
+
+#~ msgctxt "Preview text in PDC list"
+#~ msgid "View in Portal"
+#~ msgstr "Bekijk in Portal"
+
+#~ msgid "p2p_key \"%s\" does not exist"
+#~ msgstr "p2p_key \"%s\" bestaat niet"
