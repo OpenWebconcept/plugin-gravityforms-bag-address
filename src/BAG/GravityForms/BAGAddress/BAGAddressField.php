@@ -5,6 +5,7 @@ namespace Yard\BAG\GravityForms\BAGAddress;
 use GF_Field;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
+use function Yard\BAG\Foundation\Helpers\config;
 
 if (! class_exists('\GFForms')) {
     die();
@@ -108,11 +109,11 @@ class BAGAddressField extends GF_Field
     /**
      * Return all the fields available.
      *
-     * @param string $value
+     * @param array $value
      *
      * @return []
      */
-    protected function getFields($value): array
+    protected function getFields(array $value): array
     {
         return [
             (new TextInput($this, $value))
@@ -166,7 +167,7 @@ class BAGAddressField extends GF_Field
      */
     public function get_field_input($form, $value = '', $entry = null)
     {
-        wp_register_script('bag_address-js', plugin_dir_url(GF_R_C_PLUGIN_FILE) . 'resources/js/bag-address.js');
+        wp_register_script('bag_address-js', plugin_dir_url(GF_B_A_PLUGIN_FILE) . 'resources/js/bag-address.js');
         wp_enqueue_script('bag_address-js');
         wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
 

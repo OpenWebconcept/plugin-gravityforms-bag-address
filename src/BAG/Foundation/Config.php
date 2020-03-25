@@ -43,8 +43,10 @@ class Config
 
     /**
      * Boot up the configuration repository.
+     *
+     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->scanDirectory($this->getPath());
     }
@@ -132,27 +134,39 @@ class Config
     /**
      * Sets the path where the config files are fetched from.
      *
-     * @param $path
+     * @param string $path
+     *
+     * @return self
      */
-    public function setPath($path)
+    public function setPath(string $path): self
     {
         $this->path = $path;
+        return $this;
     }
 
     /**
      * @param array $nodes
+     *
+     * @return self
      */
-    public function setProtectedNodes($nodes = [])
+    public function setProtectedNodes($nodes = []): self
     {
         $this->protectedNodes = $nodes;
+        return $this;
     }
 
     /**
-     * @param $path
+     * @param string $path
+     *
+     * @return void
      */
-    private function scanDirectory($path)
+    private function scanDirectory(string $path): void
     {
         $files = glob($path . '/*', GLOB_NOSORT);
+
+        if (false === $files) {
+            return;
+        }
 
         foreach ($files as $file) {
             $fileType = filetype($file);

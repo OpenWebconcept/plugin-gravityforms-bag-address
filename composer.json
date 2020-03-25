@@ -1,6 +1,6 @@
 {
-  "name": "owc/owc-gravityforms-bag-address",
-  "description": "Add a BAG addres field to GravityForms.",
+  "name": "plugin/owc-gravityforms-bag-address",
+  "description": "Add a BAG address field to GravityForms.",
   "homepage": "https://www.yard.nl",
   "type": "wordpress-plugin",
   "require": {
@@ -25,9 +25,9 @@
     }
   },
   "scripts": {
-    "unit": "clear && ./vendor/bin/phpunit  --testsuite 'Unit Test Suite' --colors=always",
-    "unit-coverage": "clear && ./vendor/bin/phpunit  --testsuite 'Unit Test Suite' --colors=always --coverage-html ./tests/coverage",
-    "integration": "clear && ./vendor/bin/phpunit  --testsuite 'Integration Test Suite' --colors=always",
+    "unit": "clear && ./vendor/bin/phpunit --testsuite 'Unit Test Suite' --colors=always",
+    "unit-coverage": "clear && ./vendor/bin/phpunit --testsuite 'Unit Test Suite' --colors=always --coverage-html ./tests/coverage",
+    "integration": "clear && ./vendor/bin/phpunit --testsuite 'Integration Test Suite' --colors=always",
     "test": [
       "@unit",
       "@integration"

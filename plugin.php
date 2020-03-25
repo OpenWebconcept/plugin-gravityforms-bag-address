@@ -33,6 +33,4 @@ $autoloader = new \Yard\BAG\Autoloader();
 /**
  * Begin execution of the plugin.
  */
-add_action('plugins_loaded', function () {
     $plugin = (new \Yard\BAG\Foundation\Plugin(__DIR__))->boot();
-});

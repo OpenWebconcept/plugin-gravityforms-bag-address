@@ -4,6 +4,7 @@ namespace Yard\BAG\GravityForms\BAGAddress\Inputs;
 
 use GFAPI;
 use GFFormsModel;
+use StdClass;
 
 abstract class AbstractInput
 {
@@ -16,7 +17,37 @@ abstract class AbstractInput
     /** @var string Set default value of input. */
     protected $value;
 
-    public function __construct($field, $value)
+    /** @var bool */
+    protected $is_admin;
+
+    /** @var bool */
+    protected $is_sub_label_above;
+
+    /** @var string */
+    protected $sub_label_class_attribute = '';
+
+    /** @var string */
+    protected $invalid_attribute = '';
+
+    /** @var string */
+    protected $disabled_text = '';
+
+    /** @var string */
+    protected $required_attribute = '';
+
+    /** @var string */
+    protected $style = '';
+
+    /** @var string */
+    protected $css_prefix = '';
+
+    /**
+     * Undocumented function
+     *
+     * @param \StdClass $field
+     * @param array $value
+     */
+    public function __construct(StdClass $field, array $value)
     {
         $this->field                       = $field;
         $this->value                       = $value;
@@ -36,7 +67,7 @@ abstract class AbstractInput
      *
      * @return string|array
      */
-    public function getValue()
+    public function getValue(): ?string
     {
         if (is_array($this->value)) {
             return esc_attr(rgget($this->field->id .'.'. $this->fieldID, $this->value));

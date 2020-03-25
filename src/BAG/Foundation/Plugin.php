@@ -36,6 +36,8 @@ class Plugin
 
     /**
      * Instance of the hook loader.
+     *
+     * @var \Yard\BAG\Foundation\Loader
      */
     public $loader;
 
@@ -56,10 +58,12 @@ class Plugin
 
     /**
      * Boot the plugin.
+     *
+     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        require_once __DIR__ .'/helpers.php';
+        require_once __DIR__ .'/Helpers.php';
 
         $this->config = new Config($this->rootPath.'/config');
         $this->config->boot();
@@ -74,10 +78,12 @@ class Plugin
 
     /**
      * Enqueue scripts within WordPress.
+     *
+     * @return void
      */
-    public function enqueueScripts()
+    public function enqueueScripts(): void
     {
-        wp_enqueue_style(GF_B_A_ROOT_PATH, $this->resourceUrl(GF_B_A_PLUGIN_SLUG .'.css', 'css'), false);
+        wp_enqueue_style(GF_B_A_PLUGIN_SLUG, $this->resourceUrl(GF_B_A_PLUGIN_SLUG .'.css', 'css'), []);
     }
 
     /**
@@ -85,7 +91,7 @@ class Plugin
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return static::NAME;
     }
@@ -95,7 +101,7 @@ class Plugin
      *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return static::VERSION;
     }
@@ -105,7 +111,7 @@ class Plugin
      *
      * @return string
      */
-    public function getRootPath()
+    public function getRootPath(): string
     {
         return $this->rootPath;
     }
@@ -114,10 +120,11 @@ class Plugin
      * Get the path to a particular resource.
      *
      * @var string $file
+     * @var string $directory
      *
      * @return string
      */
-    public function resourceUrl($file, $directory = '')
+    public function resourceUrl(string $file, string $directory = ''): string
     {
         $directory = !empty($directory) ? $directory .'/' : '';
         return plugins_url("resources/{$directory}/{$file}", GF_B_A_PLUGIN_SLUG .'/plugin.php');
@@ -125,8 +132,10 @@ class Plugin
 
     /**
      * Boot service providers.
+     *
+     * @return void
      */
-    protected function bootServiceProviders()
+    protected function bootServiceProviders(): void
     {
         $services = $this->config->get('core.providers');
 

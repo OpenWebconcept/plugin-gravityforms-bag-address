@@ -3,6 +3,7 @@
 namespace Yard\BAG\GravityForms\BAGAddress;
 
 use WP_Error;
+use function Yard\BAG\Foundation\Helpers\config;
 
 class BAGLookup
 {

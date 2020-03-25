@@ -16,7 +16,7 @@ parameters:
         - %currentWorkingDirectory%/tests/
 #    excludes_analyse:
     autoload_files:
-         - %currentWorkingDirectory%/src/Yard/Foundation/helpers.php
+         - %currentWorkingDirectory%/src/BAG/Foundation/Helpers.php
 #        # Missing constants, function and class stubs
 #        - %currentWorkingDirectory%/tests/phpstan/bootstrap.php
 #        # Plugin stubs

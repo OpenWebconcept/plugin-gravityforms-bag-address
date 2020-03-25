@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OWC GravityForms BAG Address\n"
-"POT-Creation-Date: 2020-03-25 10:23+0100\n"
-"PO-Revision-Date: 2020-03-25 10:23+0100\n"
+"POT-Creation-Date: 2020-03-25 12:10+0100\n"
+"PO-Revision-Date: 2020-03-25 12:10+0100\n"
 "Last-Translator: Edwin Siebel <edwin@yard.nl>\n"
 "Language-Team: Yard Internet <info@yard.nl>\n"
 "Language: nl\n"
@@ -20,52 +20,52 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-2: vendor\n"
 "X-Poedit-SearchPathExcluded-3: languages\n"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:27
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:27
 msgid "BAG Address"
 msgstr "BAG adres"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:95
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:104
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:95
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:104
 msgid "This field is required. Please enter a complete address."
 msgstr "Dit veld is verplicht. Voer een volledig adres in."
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:121
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:121
 msgid "Postcode"
 msgstr "Postcode"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:126
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:126
 msgid "Homenumber"
 msgstr "Huisnummer"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:131
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:131
 msgid "Homenumber addition"
 msgstr "Huisnummer toevoeging"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:134
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:134
 msgid "Search"
 msgstr "Zoek"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:140
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:140
 msgid "Address"
 msgstr "Adres"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:146
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:146
 msgid "City"
 msgstr "Stad"
 
-#: src/Yard/GravityForms/BAGAddress/BAGAddressField.php:152
+#: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:152
 msgid "State"
 msgstr "Provincie"
 
-#: src/Yard/GravityForms/BAGAddress/BAGLookup.php:68
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:68
 msgid "No results found"
 msgstr "Geen resultaten gevonden"
 
-#: src/Yard/GravityForms/BAGAddress/BAGLookup.php:77
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:77
 msgid "1 result found"
 msgstr "1 resultaat gevonden"
 
-#: src/Yard/GravityForms/BAGAddress/BAGLookup.php:91
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:91
 msgid ""
 "Found too many results. Try to make the address more specific. For example "
 "with a house number addition"
@@ -73,120 +73,89 @@ msgstr ""
 "Teveel resultaten gevonden. Probeer het adres specifieker te maken. "
 "Bijvoorbeeld met een huisnummer toevoeging"
 
-#: src/Yard/GravityForms/GravityFormsAddon.php:89
-msgid "No remote connector"
-msgstr "Geen remote connector"
+#~ msgid "No remote connector"
+#~ msgstr "Geen remote connector"
 
-#: src/Yard/GravityForms/GravityFormsAddon.php:112
-msgid "Remote connector settings"
-msgstr "Remote connector instellingen"
+#~ msgid "Remote connector settings"
+#~ msgstr "Remote connector instellingen"
 
-#: src/Yard/GravityForms/GravityFormsAddon.php:115
-msgid "Registered connectors"
-msgstr "Geregistreerde connectoren"
+#~ msgid "Registered connectors"
+#~ msgstr "Geregistreerde connectoren"
 
-#: src/Yard/IRMA/GravityForms/Fields/IrmaLaunchQR.php:33
-msgid "Get IRMA attributes"
-msgstr "Haal IRMA attributen op"
+#~ msgid "Get IRMA attributes"
+#~ msgstr "Haal IRMA attributen op"
 
-#: src/Yard/IRMA/GravityForms/Fields/IrmaLaunchQR.php:54
-msgid "Please fetch your IRMA attributes."
-msgstr "Haal uw IRMA attributen op."
+#~ msgid "Please fetch your IRMA attributes."
+#~ msgstr "Haal uw IRMA attributen op."
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:3
-msgid "IRMA Attribute"
-msgstr "IRMA attribuut"
+#~ msgid "IRMA Attribute"
+#~ msgstr "IRMA attribuut"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:13
-msgid "IRMA Header text"
-msgstr "IRMA Header tekst"
+#~ msgid "IRMA Header text"
+#~ msgstr "IRMA Header tekst"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:21
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:75
-msgid "QR Code"
-msgstr "QR Code"
+#~ msgid "QR Code"
+#~ msgstr "QR Code"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:25
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:81
-msgid "Display as pop-up?"
-msgstr "Weergeven als pop-up?"
+#~ msgid "Display as pop-up?"
+#~ msgstr "Weergeven als pop-up?"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:30
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:86
-msgid "Button label"
-msgstr "Knoplabel"
+#~ msgid "Button label"
+#~ msgstr "Knoplabel"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:37
-msgid "ID attribute fullname"
-msgstr "ID attribuut volledige naam"
+#~ msgid "ID attribute fullname"
+#~ msgstr "ID attribuut volledige naam"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:45
-msgid "ID attribute BSN"
-msgstr "ID attribuut BSN"
+#~ msgid "ID attribute BSN"
+#~ msgstr "ID attribuut BSN"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:54
-msgid "ID attribute city"
-msgstr "ID attribuut stad"
+#~ msgid "ID attribute city"
+#~ msgstr "ID attribuut stad"
 
-#: src/Yard/IRMA/GravityForms/Fields/resources/irma-form-settings.php:64
-msgid "City to check"
-msgstr "Stad controleren"
+#~ msgid "City to check"
+#~ msgstr "Stad controleren"
 
-#: src/Yard/IRMA/IRMAAddOn.php:119
-msgid "Irma Settings"
-msgstr "IRMA instellingen"
+#~ msgid "Irma Settings"
+#~ msgstr "IRMA instellingen"
 
-#: src/Yard/IRMA/IRMAAddOn.php:123 src/Yard/IRMA/IRMAAddOn.php:124
-msgid "Server endpoint"
-msgstr "Server endpoint"
+#~ msgid "Server endpoint"
+#~ msgstr "Server endpoint"
 
-#: src/Yard/IRMA/IRMAAddOn.php:133 src/Yard/IRMA/IRMAAddOn.php:134
-msgid "Server token"
-msgstr "Server token"
+#~ msgid "Server token"
+#~ msgstr "Server token"
 
-#: src/Yard/IRMA/IRMAAddOn.php:143 src/Yard/IRMA/IRMAAddOn.php:144
-msgid "BSN attribute fieldname"
-msgstr "BSN attribute veldnaam"
+#~ msgid "BSN attribute fieldname"
+#~ msgstr "BSN attribute veldnaam"
 
-#: src/Yard/OpenZaak/Addon.php:84
-msgid "OpenZaak Settings"
-msgstr "OpenZaak instellingen"
+#~ msgid "OpenZaak Settings"
+#~ msgstr "OpenZaak instellingen"
 
-#: src/Yard/OpenZaak/Addon.php:88
-msgid "OpenZaak url"
-msgstr "OpenZaak url"
+#~ msgid "OpenZaak url"
+#~ msgstr "OpenZaak url"
 
-#: src/Yard/OpenZaak/Addon.php:97
-msgid "OpenZaak token"
-msgstr "OpenZaak token"
+#~ msgid "OpenZaak token"
+#~ msgstr "OpenZaak token"
 
-#: src/Yard/OpenZaak/Addon.php:106
-msgid "RSIN identifier"
-msgstr "RSIN identifier"
+#~ msgid "RSIN identifier"
+#~ msgstr "RSIN identifier"
 
-#: src/Yard/OpenZaak/Addon.php:115
-msgid "Attributes"
-msgstr "Attributen"
+#~ msgid "Attributes"
+#~ msgstr "Attributen"
 
-#: src/Yard/OpenZaak/GravityForms/views/select-attribute.php:6
-msgid "Case property"
-msgstr "Case eigenschap"
+#~ msgid "Case property"
+#~ msgstr "Case eigenschap"
 
-#: src/Yard/OpenZaak/GravityForms/views/select-attribute.php:8
-msgid "Choose attribute"
-msgstr "Kies attribuut"
+#~ msgid "Choose attribute"
+#~ msgstr "Kies attribuut"
 
-#: src/Yard/OpenZaak/views/add-attributes.php:8
-msgid "Add attribute"
-msgstr "Attribuut toevoegen"
+#~ msgid "Add attribute"
+#~ msgstr "Attribuut toevoegen"
 
-#: src/Yard/OpenZaak/views/add-attributes.php:11
-msgid "Name as identification"
-msgstr "Naam ter herkenning"
+#~ msgid "Name as identification"
+#~ msgstr "Naam ter herkenning"
 
-#: src/Yard/OpenZaak/views/add-attributes.php:12
-msgid "Attribute name of OpenZaak"
-msgstr "Attribuut naam van OpenZaak"
+#~ msgid "Attribute name of OpenZaak"
+#~ msgstr "Attribuut naam van OpenZaak"
 
 #, fuzzy
 #~| msgid "PDC item attributes"

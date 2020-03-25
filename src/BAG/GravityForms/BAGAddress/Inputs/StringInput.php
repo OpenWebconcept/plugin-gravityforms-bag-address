@@ -20,9 +20,11 @@ class StringInput
     /**
      * Set the value of content
      *
+     * @param string $content
+     *
      * @return  self
      */
-    public function setContent($content)
+    public function setContent(string $content): self
     {
         $this->content = $content;
 

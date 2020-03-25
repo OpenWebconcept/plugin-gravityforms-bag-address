@@ -10,7 +10,7 @@ class BAGEntity
     protected $data;
 
     /**
-     * @param \StdClass $data
+     * @param StdClass $data
      */
     public function __construct(StdClass $data)
     {

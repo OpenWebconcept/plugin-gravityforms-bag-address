@@ -10,7 +10,6 @@ pipelines:
           script:
             - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
             - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
-            - ./vendor/bin/phpstan analyze
   branches:
     master:
       - step:
@@ -22,17 +21,6 @@ pipelines:
           script:
             - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
             - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
-            - ./vendor/bin/phpstan analyze
-      - step:
-          image: node:10.15
-          name: jest unit test
-          caches:
-            - node
-          script:
-            - mv .npmrc.example .npmrc
-            - npm install
-            - npm install jest -g
-            - jest
 
 definitions:
   caches:

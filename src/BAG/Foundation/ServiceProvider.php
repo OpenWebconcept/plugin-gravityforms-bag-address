@@ -12,18 +12,25 @@ abstract class ServiceProvider
      */
     protected $plugin;
 
-    public function __construct(Plugin $plugin = null)
+    public function __construct(Plugin $plugin)
     {
         $this->plugin = $plugin;
     }
 
-    public function plugin()
+    /**
+     * Return Foundation plugin.
+     *
+     * @return \Yard\BAG\Foundation\Plugin
+     */
+    public function plugin(): \Yard\BAG\Foundation\Plugin
     {
         return $this->plugin;
     }
 
     /**
      * Register the service provider.
+     *
+     * @return void
      */
-    abstract public function register();
+    abstract public function register(): void;
 }

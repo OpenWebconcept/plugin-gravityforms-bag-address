@@ -19,8 +19,8 @@ class TextInput extends AbstractInput
     /** @var string Field text. */
     protected $fieldText = '';
 
-    /** @var bool Set input to readonly. */
-    protected $readonly = false;
+    /** @var string Set input to readonly. */
+    protected $readonly = '';
 
     /** @var string Add css class to input */
     protected $cssClass = '';
@@ -28,9 +28,11 @@ class TextInput extends AbstractInput
     /**
      * Set the value of fieldPosition
      *
+     * @param string $fieldPosition
+     *
      * @return  self
      */
-    public function setFieldPosition($fieldPosition)
+    public function setFieldPosition(string $fieldPosition): self
     {
         $this->fieldPosition = $fieldPosition;
 
@@ -40,9 +42,11 @@ class TextInput extends AbstractInput
     /**
      * Set the value of fieldID
      *
+     * @param int $fieldID
+     *
      * @return  self
      */
-    public function setFieldID($fieldID)
+    public function setFieldID(int $fieldID): self
     {
         $this->fieldID = $fieldID;
 
@@ -53,9 +57,11 @@ class TextInput extends AbstractInput
     /**
      * Set the value of fieldText
      *
+     * @param string $fieldText
+     *
      * @return  self
      */
-    public function setFieldText($fieldText)
+    public function setFieldText(string $fieldText): self
     {
         $this->fieldText = $fieldText;
 
@@ -66,9 +72,11 @@ class TextInput extends AbstractInput
     /**
      * Set the value of fieldName
      *
+     * @param string $fieldName
+     *
      * @return  self
      */
-    public function setFieldName($fieldName)
+    public function setFieldName(string $fieldName): self
     {
         $this->fieldName = $fieldName;
 
@@ -80,7 +88,7 @@ class TextInput extends AbstractInput
      *
      * @return self
      */
-    public function setReadonly()
+    public function setReadonly(): self
     {
         $this->readonly = 'readonly';
 
@@ -90,9 +98,11 @@ class TextInput extends AbstractInput
     /**
      * Set the value of field.
      *
+     * @param string $value
+     *
      * @return  self
      */
-    public function setFieldValue($value)
+    public function setFieldValue(string $value): self
     {
         $this->value = $value;
 
@@ -102,11 +112,13 @@ class TextInput extends AbstractInput
     /**
      * Set the value of class
      *
+     * @param string $cssClass
+     *
      * @return  self
      */
-    public function setClass($cssClass)
+    public function setClass(string $cssClass): self
     {
-        $this->class = $cssClass;
+        $this->cssClass = $cssClass;
 
         return $this;
     }
@@ -130,6 +142,8 @@ class TextInput extends AbstractInput
 						{$this->getLabelField()}
                     </span>";
             }
+        } else {
+            return '';
         }
     }
 
