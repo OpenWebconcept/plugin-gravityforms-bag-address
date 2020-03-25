@@ -125,12 +125,12 @@ class BAGAddressField extends GF_Field
                 ->setFieldID(2)
                 ->setFieldName('homeNumber')
                 ->setFieldText(__('Homenumber', config('core.text_domain')))
-                ->setFieldPosition('right'),
+                ->setFieldPosition('middle'),
             (new TextInput($this, $value))
                 ->setFieldID(3)
                 ->setFieldName('homeNumberAddition')
                 ->setFieldText(__('Homenumber addition', config('core.text_domain')))
-                ->setFieldPosition('left'),
+                ->setFieldPosition('right'),
             (new StringInput())
             ->setContent(sprintf('<span class="ginput_right"><label>&nbsp;</label><input type="submit" class="bag-search-button button" id="bag-lookup" value="%s"></span>', __('Search', config('core.text_domain')))),
             (new StringInput())
