@@ -36,8 +36,8 @@ msgid "Homenumber"
 msgstr ""
 
 #: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:131
-msgid "Homenumber addition"
-msgstr ""
+msgid "Addition"
+msgstr "Toevoeging"
 
 #: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:134
 msgid "Search"

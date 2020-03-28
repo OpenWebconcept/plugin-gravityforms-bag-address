@@ -7,7 +7,7 @@ use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
 use function Yard\BAG\Foundation\Helpers\config;
 
-if (! class_exists('\GFForms')) {
+if (!class_exists('\GFForms')) {
     die();
 }
 
@@ -129,12 +129,12 @@ class BAGAddressField extends GF_Field
             (new TextInput($this, $value))
                 ->setFieldID(3)
                 ->setFieldName('homeNumberAddition')
-                ->setFieldText(__('Homenumber addition', config('core.text_domain')))
+                ->setFieldText(__('Addition', config('core.text_domain')))
                 ->setFieldPosition('right'),
             (new StringInput())
-            ->setContent(sprintf('<span class="ginput_right"><label>&nbsp;</label><input type="submit" class="bag-search-button button" id="bag-lookup" value="%s"></span>', __('Search', config('core.text_domain')))),
+                ->setContent(sprintf('<span class="ginput_right"><label>&nbsp;</label><input type="submit" class="bag-search-button button" id="bag-lookup" value="%s"></span>', __('Search', config('core.text_domain')))),
             (new StringInput())
-            ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
+                ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
             (new TextInput($this, $value))
                 ->setFieldID(5)
                 ->setFieldName('address')
@@ -229,11 +229,11 @@ class BAGAddressField extends GF_Field
             $state                       = trim(rgget($this->id . '.6', $value));
 
             $return = $zip;
-            $return .= ! empty($return) && ! empty($homeNumber) ? " $homeNumber" : $homeNumber;
-            $return .= ! empty($return) && ! empty($homeNumberAddition) ? "$homeNumberAddition" : $homeNumberAddition;
-            $return .= ! empty($return) && ! empty($city) ? " $city" : $city;
-            $return .= ! empty($return) && ! empty($address) ? " $address" : $address;
-            $return .= ! empty($return) && ! empty($state) ? " $state" : $state;
+            $return .= !empty($return) && !empty($homeNumber) ? " $homeNumber" : $homeNumber;
+            $return .= !empty($return) && !empty($homeNumberAddition) ? "$homeNumberAddition" : $homeNumberAddition;
+            $return .= !empty($return) && !empty($city) ? " $city" : $city;
+            $return .= !empty($return) && !empty($address) ? " $address" : $address;
+            $return .= !empty($return) && !empty($state) ? " $state" : $state;
         } else {
             $return = '';
         }
