@@ -3,9 +3,9 @@
 namespace Yard\BAG\GravityForms\BAGAddress;
 
 use GF_Field;
+use function Yard\BAG\Foundation\Helpers\config;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
-use function Yard\BAG\Foundation\Helpers\config;
 
 if (!class_exists('\GFForms')) {
     die();

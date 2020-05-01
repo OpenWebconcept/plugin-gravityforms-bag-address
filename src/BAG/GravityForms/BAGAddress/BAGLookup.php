@@ -112,14 +112,28 @@ class BAGLookup
      */
     private function parseURLvariables(): string
     {
-        $filteredParameters = array_filter([
+        $params = [
             'postcode'             => $this->zip,
-            'huisnummer'           => $this->homeNumber,
-            'huisnummertoevoeging' => $this->homeNumberAddition,
             'type'                 => 'adres'
-        ], function ($item) {
-            return !empty($item);
-        });
+        ];
+
+        if (empty($this->homeNumberAddition)) {
+            $params = array_merge($params, [
+                'huis_nlt'           => $this->homeNumber,
+            ]);
+        } else {
+            $params = array_merge($params, [
+                'huisnummer'           => $this->homeNumber,
+                'huisletter'           => $this->homeNumberAddition,
+            ]);
+        }
+
+        $filteredParameters = array_filter(
+            $params,
+            function ($item) {
+                return !empty($item);
+            }
+        );
 
         $query = http_build_query($filteredParameters, null, '%20and%20');
         $query = str_replace('=', ':', $query);
