@@ -74,14 +74,13 @@ class BAGLookup
 
         if (1 === $response->numFound) {
             $address = new BAGEntity($response->docs[0]);
-            return wp_send_json_success([
+            return \wp_send_json_success([
                 'message' => __('1 result found', config('core.text_domain')),
                 'results' => [
                     'street'                 => $address->straatnaam,
                     'houseNumber'            => $address->huisnummer,
                     'city'                   => $address->woonplaatsnaam,
                     'zip'                    => $address->postcode,
-                    'state'                  => $address->provincienaam,
                     'displayname'            => $address->weergavenaam
                 ]
             ]);

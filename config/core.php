@@ -8,5 +8,5 @@ return [
         Yard\BAG\GravityForms\GravityFormsServiceProvider::class,
     ],
 
-    'text_domain' => 'owc-gravityforms-bag-address',
+    'text_domain' => GF_BAG_LANGUAGE_DOMAIN,
 ];

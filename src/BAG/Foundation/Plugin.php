@@ -11,14 +11,14 @@ class Plugin
      *
      * @var string
      */
-    const NAME = 'owc-gravityforms-bag-address';
+    const NAME = GF_BAG_SLUG;
 
     /**
      * Version of the plugin.
      *
      * @var string
      */
-    const VERSION = '1.0.0';
+    const VERSION = GF_BAG_VERSION;
 
     /**
      * Path to the root of the plugin.
@@ -83,7 +83,7 @@ class Plugin
      */
     public function enqueueScripts(): void
     {
-        wp_enqueue_style(GF_B_A_PLUGIN_SLUG, $this->resourceUrl(GF_B_A_PLUGIN_SLUG .'.css', 'css'), []);
+        \wp_enqueue_style(GF_BAG_SLUG, $this->resourceUrl(GF_BAG_SLUG .'.css', 'css'), [], GF_BAG_VERSION);
     }
 
     /**
@@ -127,7 +127,7 @@ class Plugin
     public function resourceUrl(string $file, string $directory = ''): string
     {
         $directory = !empty($directory) ? $directory .'/' : '';
-        return plugins_url("resources/{$directory}/{$file}", GF_B_A_PLUGIN_SLUG .'/plugin.php');
+        return plugins_url("resources/{$directory}/{$file}", GF_BAG_SLUG .'/plugin.php');
     }
 
     /**

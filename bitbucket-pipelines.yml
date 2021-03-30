@@ -1,25 +1,25 @@
+image: yardinternet/php7.2-composer
+
 pipelines:
   custom:
     manually:
       - step:
-          image: yardinternet/php7.2-composer
           name: unit test
           caches:
             - composer
             - vendor-directory
           script:
-            - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
+            - composer install --no-interaction --no-progress --prefer-dist
             - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
   branches:
-    master:
+     '**':
       - step:
-          image: yardinternet/php7.2-composer
           name: unit test
           caches:
             - composer
             - vendor-directory
           script:
-            - composer install --no-interaction --no-progress --prefer-dist --ignore-platform-reqs
+            - composer install --no-interaction --no-progress --prefer-dist
             - ./vendor/bin/phpunit --testsuite "Unit Test Suite"
 
 definitions:

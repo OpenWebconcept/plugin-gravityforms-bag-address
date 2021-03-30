@@ -99,8 +99,7 @@ class BAGAddressField extends GF_Field
 
         $city                     = rgar($value, $this->id . '.4');
         $address                  = rgar($value, $this->id . '.5');
-        $state                    = rgar($value, $this->id . '.6');
-        if (empty($city) && empty($address) && empty($state)) {
+        if (empty($city) && empty($address)) {
             $this->failed_validation  = true;
             $this->validation_message = empty($this->errorMessage) ? esc_html__('This field is required. Please enter a complete address.', config('core.text_domain')) : $this->errorMessage;
         }
@@ -146,13 +145,7 @@ class BAGAddressField extends GF_Field
                 ->setFieldName('city')
                 ->setFieldText(__('City', config('core.text_domain')))
                 ->setReadonly()
-                ->setFieldPosition('left'),
-            (new TextInput($this, $value))
-                ->setFieldID(6)
-                ->setFieldName('state')
-                ->setFieldText(__('State', config('core.text_domain')))
-                ->setReadonly()
-                ->setFieldPosition('right')
+                ->setFieldPosition('left')
         ];
     }
 
@@ -167,9 +160,9 @@ class BAGAddressField extends GF_Field
      */
     public function get_field_input($form, $value = '', $entry = null)
     {
-        wp_register_script('bag_address-js', plugin_dir_url(GF_B_A_PLUGIN_FILE) . 'resources/js/bag-address.js');
-        wp_enqueue_script('bag_address-js');
-        wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
+        \wp_register_script('bag_address-js', plugin_dir_url(GF_BAG_FILE) . 'resources/js/bag-address.js', ['jquery'], GF_BAG_VERSION, true);
+        \wp_enqueue_script('bag_address-js');
+        \wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
 
         $output = implode(' ', array_map(function ($item) {
             return $item->render();
@@ -197,10 +190,9 @@ class BAGAddressField extends GF_Field
 			new Input(field.id + '.2', '%s'),
 			new Input(field.id + '.3', '%s'),
 			new Input(field.id + '.4', '%s'),
-			new Input(field.id + '.5', '%s'),
-			new Input(field.id + '.6', '%s')
+			new Input(field.id + '.5', '%s')
 		];
-        }", $this->type, $this->get_form_editor_field_title(), 'Zip', 'HomeNumber', 'HomeNumberAddition', 'City', 'Address', 'State') . PHP_EOL;
+        }", $this->type, $this->get_form_editor_field_title(), 'Zip', 'HomeNumber', 'HomeNumberAddition', 'City', 'Address') . PHP_EOL;
 
         return $script;
     }
@@ -226,14 +218,12 @@ class BAGAddressField extends GF_Field
             $homeNumberAddition          = trim(rgget($this->id . '.3', $value));
             $city                        = trim(rgget($this->id . '.4', $value));
             $address                     = trim(rgget($this->id . '.5', $value));
-            $state                       = trim(rgget($this->id . '.6', $value));
 
             $return = $zip;
             $return .= !empty($return) && !empty($homeNumber) ? " $homeNumber" : $homeNumber;
             $return .= !empty($return) && !empty($homeNumberAddition) ? "$homeNumberAddition" : $homeNumberAddition;
             $return .= !empty($return) && !empty($city) ? " $city" : $city;
             $return .= !empty($return) && !empty($address) ? " $address" : $address;
-            $return .= !empty($return) && !empty($state) ? " $state" : $state;
         } else {
             $return = '';
         }

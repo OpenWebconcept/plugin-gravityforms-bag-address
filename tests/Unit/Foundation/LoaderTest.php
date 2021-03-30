@@ -1,10 +1,10 @@
 <?php
 
-namespace Yard\Tests\BAG\Foundation;
+namespace Yard\BAG\Tests\Foundation;
 
 use WP_Mock;
 use Yard\BAG\Foundation\Loader;
-use Yard\Tests\BAG\TestCase;
+use Yard\BAG\Tests\TestCase;
 
 class LoaderTest extends TestCase
 {

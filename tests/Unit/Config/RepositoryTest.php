@@ -1,9 +1,9 @@
 <?php
 
-namespace Yard\Tests\BAG\Config;
+namespace Yard\BAG\Tests\Config;
 
 use Yard\BAG\Foundation\Config;
-use Yard\Tests\BAG\TestCase;
+use Yard\BAG\Tests\TestCase;
 
 class RepositoryTest extends TestCase
 {
