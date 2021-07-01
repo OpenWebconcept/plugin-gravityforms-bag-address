@@ -10,7 +10,7 @@ namespace Yard\BAG\Foundation\Helpers;
  */
 function config(string $setting, string $default = ''): ?string
 {
-    $config   = new \Yard\BAG\Foundation\Config(GF_BAG_ROOT_PATH.'/config');
+    $config = new \Yard\BAG\Foundation\Config(GF_BAG_ROOT_PATH.'/config');
     $config->boot();
     return $config->get($setting, $default);
 }

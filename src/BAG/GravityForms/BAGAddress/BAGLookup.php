@@ -37,10 +37,10 @@ class BAGLookup
 
     final public function __construct()
     {
-        $this->zip                   = $this->cleanUpInput('zip');
-        $this->homeNumber            = $this->cleanUpInput('homeNumber');
-        $this->homeNumberAddition    = $this->cleanUpInput('homeNumberAddition');
-        $this->url                   = $this->parseURLvariables();
+        $this->zip                = $this->cleanUpInput('zip');
+        $this->homeNumber         = $this->cleanUpInput('homeNumber');
+        $this->homeNumberAddition = $this->cleanUpInput('homeNumberAddition');
+        $this->url                = $this->parseURLvariables();
     }
 
     /**
@@ -60,9 +60,9 @@ class BAGLookup
                 ]
             );
         }
-        $body        = wp_remote_retrieve_body($response);
-        $data        = json_decode($body);
-        $response    = $data->response;
+        $body     = wp_remote_retrieve_body($response);
+        $data     = json_decode($body);
+        $response = $data->response;
         if (1 > $response->numFound) {
             return wp_send_json_error(
                 [
@@ -77,11 +77,11 @@ class BAGLookup
             return \wp_send_json_success([
                 'message' => __('1 result found', config('core.text_domain')),
                 'results' => [
-                    'street'                 => $address->straatnaam,
-                    'houseNumber'            => $address->huisnummer,
-                    'city'                   => $address->woonplaatsnaam,
-                    'zip'                    => $address->postcode,
-                    'displayname'            => $address->weergavenaam
+                    'street'      => $address->straatnaam,
+                    'houseNumber' => $address->huisnummer,
+                    'city'        => $address->woonplaatsnaam,
+                    'zip'         => $address->postcode,
+                    'displayname' => $address->weergavenaam
                 ]
             ]);
         }
@@ -112,18 +112,18 @@ class BAGLookup
     private function parseURLvariables(): string
     {
         $params = [
-            'postcode'             => $this->zip,
-            'type'                 => 'adres'
+            'postcode' => $this->zip,
+            'type'     => 'adres'
         ];
 
         if (empty($this->homeNumberAddition)) {
             $params = array_merge($params, [
-                'huis_nlt'           => $this->homeNumber,
+                'huis_nlt' => $this->homeNumber,
             ]);
         } else {
             $params = array_merge($params, [
-                'huisnummer'           => $this->homeNumber,
-                'huisletter'           => $this->homeNumberAddition,
+                'huisnummer' => $this->homeNumber,
+                'huisletter' => $this->homeNumberAddition,
             ]);
         }
 

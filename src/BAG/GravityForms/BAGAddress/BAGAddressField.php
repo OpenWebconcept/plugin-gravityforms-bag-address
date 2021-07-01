@@ -88,8 +88,8 @@ class BAGAddressField extends GF_Field
     public function validate($value, $form)
     {
         if ($this->isRequired) {
-            $zip                  = rgar($value, $this->id . '.1');
-            $homeNumber           = rgar($value, $this->id . '.2');
+            $zip        = rgar($value, $this->id . '.1');
+            $homeNumber = rgar($value, $this->id . '.2');
 
             if (empty($zip) && empty($homeNumber)) {
                 $this->failed_validation  = true;
@@ -97,8 +97,8 @@ class BAGAddressField extends GF_Field
             }
         }
 
-        $city                     = rgar($value, $this->id . '.4');
-        $address                  = rgar($value, $this->id . '.5');
+        $city    = rgar($value, $this->id . '.4');
+        $address = rgar($value, $this->id . '.5');
         if (empty($city) && empty($address)) {
             $this->failed_validation  = true;
             $this->validation_message = empty($this->errorMessage) ? esc_html__('This field is required. Please enter a complete address.', config('core.text_domain')) : $this->errorMessage;
@@ -213,11 +213,11 @@ class BAGAddressField extends GF_Field
     public function get_value_entry_detail($value, $currency = '', $use_text = false, $format = 'html', $media = 'screen')
     {
         if (is_array($value)) {
-            $zip                         = trim(rgget($this->id . '.1', $value));
-            $homeNumber                  = trim(rgget($this->id . '.2', $value));
-            $homeNumberAddition          = trim(rgget($this->id . '.3', $value));
-            $city                        = trim(rgget($this->id . '.4', $value));
-            $address                     = trim(rgget($this->id . '.5', $value));
+            $zip                = trim(rgget($this->id . '.1', $value));
+            $homeNumber         = trim(rgget($this->id . '.2', $value));
+            $homeNumberAddition = trim(rgget($this->id . '.3', $value));
+            $city               = trim(rgget($this->id . '.4', $value));
+            $address            = trim(rgget($this->id . '.5', $value));
 
             $return = $zip;
             $return .= !empty($return) && !empty($homeNumber) ? " $homeNumber" : $homeNumber;

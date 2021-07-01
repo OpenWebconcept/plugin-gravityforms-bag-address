@@ -24,7 +24,7 @@ define('GF_BAG_SLUG', basename(__FILE__, '.php'));
 define('GF_BAG_LANGUAGE_DOMAIN', GF_BAG_SLUG);
 define('GF_BAG_DIR', basename(__DIR__));
 define('GF_BAG_ROOT_PATH', __DIR__);
-define('GF_BAG_VERSION', '1.0.1');
+define('GF_BAG_VERSION', '1.0.2');
 
 
 /**

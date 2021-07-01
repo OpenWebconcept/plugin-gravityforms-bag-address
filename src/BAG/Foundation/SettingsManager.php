@@ -19,7 +19,7 @@ abstract class SettingsManager
     public function __construct($key = '')
     {
         if (! empty($key)) {
-            $this->key     = $key;
+            $this->key = $key;
         }
     }
 

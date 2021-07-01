@@ -176,7 +176,7 @@ class TextInput extends AbstractInput
      */
     protected function getSpanField(): string
     {
-        return "<span id='input_{$this->field->id}_{$this->form['id']}.{$this->fieldID}.container' class='ginput_{$this->fieldPosition} {$this->css_prefix} {$this->fieldID} {$this->cssClass}' {$this->style}>";
+        return "<span id='input_{$this->field->id}_{$this->field->formId}.{$this->fieldID}.container' class='ginput_{$this->fieldPosition} {$this->css_prefix} {$this->fieldID} {$this->cssClass}' {$this->style}>";
     }
 
     /**
@@ -200,7 +200,7 @@ class TextInput extends AbstractInput
                     type='text'
                     data-name='{$this->fieldName}'
                     name='input_{$this->field->id}.{$this->fieldID}'
-                    id='input_{$this->field->id}_{$this->form['id']}_{$this->fieldID}'
+                    id='input_{$this->field->id}_{$this->field->formId}_{$this->fieldID}'
                     value='{$this->getValue()}'
                     {$this->field->get_tabindex()} {$this->disabled_text} {$this->readonly} {$this->getPlaceholder()} {$this->required_attribute} {$this->invalid_attribute}
                     aria-label='{$this->fieldName}'

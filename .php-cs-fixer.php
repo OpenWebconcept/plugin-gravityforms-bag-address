@@ -7,19 +7,20 @@ $finder = Symfony\Component\Finder\Finder::create()
     ->name('*.php')
     ->notName('*.blade.php');
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+$config
     ->setRules([
         '@PSR2'                  => true,
-        'array_syntax'           => [
-            'syntax' => 'short',
-        ],
-        'ordered_imports'        => [
-            'sortAlgorithm' => 'alpha',
-        ],
+        'array_syntax'           => ['syntax' => 'short'],
+        'ordered_imports'        => [ 'sort_algorithm' => 'alpha' ],
         'no_unused_imports'      => true,
         'binary_operator_spaces' => [
-            'align_double_arrow' => true,
-            'align_equals'       => true,
+            'default' => 'single_space',
+            'operators' => [
+                '===' => 'align_single_space_minimal',
+                '=>' => 'align_single_space_minimal',
+                '=' => 'align_single_space_minimal',
+            ]
         ],
         'full_opening_tag'       => true,
         'yoda_style'             => [
@@ -30,3 +31,5 @@ return PhpCsFixer\Config::create()
         ],
     ])
     ->setFinder($finder);
+
+return $config;
