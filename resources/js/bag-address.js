@@ -1,10 +1,13 @@
 jQuery(document).ready( function() {
 
-    jQuery('#bag-lookup').on('click', function(e) {
-        var button = jQuery(this);
-        var isValid = true;
-        e.preventDefault();
-        var isValid =jQuery('.gform_wrapper input').filter(function() {
+    jQuery('.js-bag-lookup').on('click', function(e) {
+		var button = jQuery(this);
+		var container = button.closest('.gfield');
+		var isValid = true;
+
+		e.preventDefault();
+
+        var isValid = container.find('input').filter(function() {
             if (!jQuery(this).data('name')) {
                 return;
             }
@@ -17,7 +20,7 @@ jQuery(document).ready( function() {
         });
 
         if ( 2 > isValid.length ) {
-            jQuery('.result').html('Vul valide postcode en huisnummer in');
+            container.find('.result').html('Vul valide postcode en huisnummer in');
             return;
         }
 
@@ -27,23 +30,23 @@ jQuery(document).ready( function() {
             url : bag_address.ajaxurl,
             data: {
                 'action': 'bag_address_lookup',
-                'zip': document.querySelector("input[data-name='zip']").value,
-                'homeNumber': document.querySelector("input[data-name='homeNumber']").value,
-                'homeNumberAddition': document.querySelector("input[data-name='homeNumberAddition']").value
+                'zip': container.find("input[data-name='zip']").val(),
+                'homeNumber': container.find("input[data-name='homeNumber']").val(),
+                'homeNumberAddition': container.find("input[data-name='homeNumberAddition']").val()
             },
             beforeSend : function ( xhr ) {
                 button.val('Zoekende...').prop('disabled', 'disable');
-                jQuery('.result').html('');
-                document.querySelector("input[data-name='address']").setAttribute('value', '');
-                document.querySelector("input[data-name='city']").setAttribute('value', '');
+                container.find('.result').html('');
+                container.find("input[data-name='address']").attr('value', '');
+                container.find("input[data-name='city']").attr('value', '');
             },
             success: function(response) {
                 if(true === response.success) {
-                    document.querySelector("input[data-name='address']").setAttribute('value', response.data.results.street ? response.data.results.street : '');
-                    document.querySelector("input[data-name='city']").setAttribute('value', response.data.results.city ? response.data.results.city : '');
-                    jQuery('.result').html(response.data.message);
+                    container.find("input[data-name='address']").attr('value', response.data.results.street ? response.data.results.street : '');
+					container.find("input[data-name='city']").attr('value', response.data.results.city ? response.data.results.city : '');
+                    container.find('.result').html(response.data.message);
                 } else {
-                    jQuery('.result').html(response.data.message);
+                    container.find('.result').html(response.data.message);
                 }
             },
             complete: function() {

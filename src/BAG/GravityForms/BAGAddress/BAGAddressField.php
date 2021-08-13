@@ -131,7 +131,7 @@ class BAGAddressField extends GF_Field
                 ->setFieldText(__('Addition', config('core.text_domain')))
                 ->setFieldPosition('right'),
             (new StringInput())
-                ->setContent(sprintf('<span class="ginput_right"><label>&nbsp;</label><input type="submit" class="bag-search-button button" id="bag-lookup" value="%s"></span>', __('Search', config('core.text_domain')))),
+                ->setContent(sprintf('<span class="ginput_right"><label>&nbsp;</label><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', config('core.text_domain')))),
             (new StringInput())
                 ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
             (new TextInput($this, $value))
