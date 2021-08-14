@@ -1,6 +1,7 @@
 jQuery(document).ready( function() {
 
-    jQuery('.js-bag-lookup').on('click', function(e) {
+	jQuery('.js-bag-lookup').on('click', function (e) {
+		console.log('clicked', e.keyCode === 13)
 		var button = jQuery(this);
 		var container = button.closest('.gfield');
 		var isValid = true;
@@ -12,15 +13,25 @@ jQuery(document).ready( function() {
                 return;
             }
             return jQuery(this).data('name').match('^(zip|homeNumber)$');
-        }).filter(function(index, item) {
+		}).filter(function (index, item) {
             if (!jQuery(item).val().trim() ) {
                 return;
             }
 			return true;
-        });
+		});
+
+		$('input').on('keyup', function (e) {
+			if (!jQuery(this).data('name')) {
+                return;
+			}
+
+			if (e.key === 'Enter' || e.keyCode === 13) {
+				jQuery(this).closest('.gfield').find('input[type="submit"]').click();
+			}
+		});
 
         if ( 2 > isValid.length ) {
-            container.find('.result').html('Vul valide postcode en huisnummer in');
+			container.find('.result').html('Vul valide postcode en huisnummer in');
             return;
         }
 
