@@ -15,6 +15,7 @@ class GravityFormsServiceProvider extends ServiceProvider
     public function register(): void
     {
         add_action('wp_ajax_nopriv_bag_address_lookup', [new BAGLookup, 'execute']);
+        add_action('wp_ajax_bag_address_lookup', [new BAGLookup, 'execute']);
 
         add_action('gform_loaded', function () {
             GF_Fields::register(new BAGAddressField());
