@@ -5,6 +5,10 @@ All notable changes to this plugin will be documented in this file.
 * requires: 4.9
 * tested: 5.7.0
 
+## v1.1.1 - 2021-09-03
+
+(fix): bag address not being filled if initially hidden
+
 ## v1.1.0 - 2021-08-19
 
 * (chore): allow for multiple bag address fields in a form
