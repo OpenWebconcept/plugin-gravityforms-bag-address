@@ -58,23 +58,21 @@ jQuery(document).ready(function () {
 			beforeSend: function (xhr) {
 				button.val("Zoekende...").prop("disabled", "disable");
 				container.find(".result").html("");
-				container.find("input[data-name='address']").attr("value", "");
-				container.find("input[data-name='city']").attr("value", "");
+				container.find("input[data-name='address']").val("");
+				container.find("input[data-name='city']").val("");
 			},
 			success: function (response) {
 				if (true === response.success) {
 					container
 						.find("input[data-name='address']")
-						.attr(
-							"value",
+						.val(
 							response.data.results.street
 								? response.data.results.street
 								: ""
 						);
 					container
 						.find("input[data-name='city']")
-						.attr(
-							"value",
+						.val(
 							response.data.results.city
 								? response.data.results.city
 								: ""
