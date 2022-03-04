@@ -5,6 +5,13 @@ All notable changes to this plugin will be documented in this file.
 * requires: 4.9
 * tested: 5.7.0
 
+## v1.1.2 - 2022-03-04
+
+(feat): auto search on input, but with debounce.
+(chore): remove text domain constants
+(fix): relative path to plugin folder
+(fix): issue where the id was not output properly
+
 ## v1.1.1 - 2021-09-03
 
 (fix): bag address not being filled if initially hidden
