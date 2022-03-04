@@ -53,7 +53,7 @@ class Plugin
     public function __construct($rootPath = '')
     {
         $this->rootPath = $rootPath;
-        load_plugin_textdomain($this->getName(), false, $this->getName() . '/languages/');
+        load_plugin_textdomain($this->getName(), false, basename(GF_BAG_ROOT_PATH) . '/languages');
     }
 
     /**

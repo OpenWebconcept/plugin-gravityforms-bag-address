@@ -3,6 +3,7 @@
 namespace Yard\BAG\GravityForms\BAGAddress;
 
 use WP_Error;
+
 use function Yard\BAG\Foundation\Helpers\config;
 
 class BAGLookup
@@ -67,7 +68,7 @@ class BAGLookup
             return wp_send_json_error(
                 [
                     'message' => __('No results found', config('core.text_domain')),
-                    'results' => []
+                    'results' => [],
                 ]
             );
         }
@@ -156,7 +157,7 @@ class BAGLookup
      */
     protected function call()
     {
-        return wp_remote_get($this->url);
+        return wp_remote_get($this->url, ['timeout' => 10]);
     }
 
     /**

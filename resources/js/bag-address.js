@@ -1,25 +1,42 @@
 jQuery(document).ready(function () {
-	jQuery(".js-bag-lookup").on("click", function (e) {
-		var button = jQuery(this);
-		var container = button.closest(".gfield");
-		var isValid = true;
+	var timer;
 
-		e.preventDefault();
+	function debounce(func) {
+	    clearTimeout(timer);
+	    timer = setTimeout(function() { func.apply(this); }, 1000);
+	}
 
-		var isValid = container
+	function inputIsValid() {
+		var container = jQuery(".js-bag-lookup").closest(".gfield");
+
+		var validElements = container
 			.find("input")
 			.filter(function () {
-				if (!jQuery(this).data("name")) {
-					return;
-				}
-				return jQuery(this).data("name").match("^(zip|homeNumber)$");
+				return String(jQuery(this).data("name")).match("^(zip|homeNumber)$");
 			})
 			.filter(function (index, item) {
-				if (!jQuery(item).val().trim()) {
-					return;
-				}
-				return true;
+				return Boolean(jQuery(item).val().trim());
 			});
+
+		return validElements.length === 2;
+	}
+
+	jQuery(".ginput_container_bag_address input").on("input", function (e) {
+		if (! inputIsValid()) {
+			return;
+		}
+
+		debounce(function() {
+			jQuery(".js-bag-lookup").trigger("click");
+		}, 300);
+	});
+
+	jQuery(".js-bag-lookup").on("click", function (e) {
+		e.preventDefault();
+
+		var button = jQuery(this);
+		var container = button.closest(".gfield");
+		var isValid = inputIsValid();
 
 		jQuery("input").on("keyup", function (e) {
 			if (!jQuery(this).data("name")) {
@@ -34,7 +51,7 @@ jQuery(document).ready(function () {
 			}
 		});
 
-		if (2 > isValid.length) {
+		if (isValid === false) {
 			container
 				.find(".result")
 				.html("Vul een valide postcode en huisnummer in");
