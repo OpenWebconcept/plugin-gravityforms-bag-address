@@ -5,6 +5,10 @@ All notable changes to this plugin will be documented in this file.
 * requires: 4.9
 * tested: 5.7.0
 
+## v1.1.3 - 2022-11-07
+
+(fix): sc-25141 change validation to support multiple bag adresses on a page
+
 ## v1.1.2 - 2022-03-04
 
 (feat): auto search on input, but with debounce.
