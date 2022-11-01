@@ -1,0 +1,21 @@
+name: "plugin-gravityforms-bag-address"
+
+publiccodeYmlVersion: 1.0
+url: "https://github.com/OpenWebconcept/plugin-gravityforms-bag-address"
+
+platforms:
+  - "web"
+
+categories:
+  - "application-development"
+
+softwareType: "softwareAddon"
+
+description:
+  localisedName: "OWC GravityForms Bag Address"
+  shortDescription: "Deze plugin zorgt ervoor dat er binnen Gravifyforms een blok geschikbaar wordt die op basis van een postcode en huisnummer een adres genereerd."
+  longDescription: "Deze plugin zorgt ervoor dat er binnen Gravifyforms een blok geschikbaar wordt die op basis van een postcode en huisnummer een adres genereerd."
+
+nl:
+  commonground:
+    layerType: "service"
