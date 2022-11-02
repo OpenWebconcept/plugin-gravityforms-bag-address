@@ -1,5 +1,8 @@
 name: "plugin-gravityforms-bag-address"
 
+applicationSuite:
+  name: "OpenWebconcept"
+
 publiccodeYmlVersion: 1.0
 url: "https://github.com/OpenWebconcept/plugin-gravityforms-bag-address"
 
@@ -19,3 +22,10 @@ description:
 nl:
   commonground:
     layerType: "service"
+
+dependsOn:
+  open:
+    - name: "gravityforms"
+    - versionMin: 2.6.7
+    - name: "WordPress"
+    - versionMin: 6.0.3
