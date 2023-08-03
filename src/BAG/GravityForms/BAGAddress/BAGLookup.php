@@ -2,9 +2,9 @@
 
 namespace Yard\BAG\GravityForms\BAGAddress;
 
-use WP_Error;
-
 use function Yard\BAG\Foundation\Helpers\config;
+
+use WP_Error;
 
 class BAGLookup
 {
@@ -34,7 +34,7 @@ class BAGLookup
      *
      * @var string
      */
-    private $url = 'https://geodata.nationaalgeoregister.nl/locatieserver/v3/free?q=';
+    private $url = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=';
 
     final public function __construct()
     {
