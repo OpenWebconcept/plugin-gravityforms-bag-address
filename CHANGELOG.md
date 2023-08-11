@@ -5,6 +5,10 @@ All notable changes to this plugin will be documented in this file.
 -   requires: 4.9
 -   tested: 5.7.0
 
+## v1.1.5 - 2023-08-11
+
+(feat): bag field value entry detai
+
 ## v1.1.4 - 2023-08-03
 
 (refactor): BAG URL

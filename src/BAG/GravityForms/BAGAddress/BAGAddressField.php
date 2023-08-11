@@ -227,11 +227,11 @@ class BAGAddressField extends GF_Field
             $city               = trim(rgget($this->id . '.4', $value));
             $address            = trim(rgget($this->id . '.5', $value));
 
-            $return = $zip;
-            $return .= !empty($return) && !empty($homeNumber) ? " $homeNumber" : $homeNumber;
-            $return .= !empty($return) && !empty($homeNumberAddition) ? "$homeNumberAddition" : $homeNumberAddition;
-            $return .= !empty($return) && !empty($city) ? " $city" : $city;
-            $return .= !empty($return) && !empty($address) ? " $address" : $address;
+            $return = !empty($address) ? $address : "";
+            $return .= !empty($homeNumber) ? " $homeNumber" : "";
+            $return .= !empty($homeNumberAddition) ? " $homeNumberAddition" : "";
+            $return .= !empty($zip) ? " $zip" : "";
+            $return .= !empty($city) ? " $city" : "";
         } else {
             $return = '';
         }
