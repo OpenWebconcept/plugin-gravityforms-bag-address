@@ -2,8 +2,6 @@
 
 namespace Yard\BAG\GravityForms\BAGAddress;
 
-use function Yard\BAG\Foundation\Helpers\config;
-
 class BAGFieldSettings
 {
     public function register()
@@ -18,14 +16,14 @@ class BAGFieldSettings
             ?>
             <li class="municipality_limit field_setting">
                 <label for="field_municipality_limit" class="section_label">
-                    <?php echo __('Limit address lookup to municipality borders', config('core.text_domain')); ?>
+                    <?php echo __('Limit address lookup to municipality borders', 'owc-gravityforms-bag-address'); ?>
                 </label>
                 <p>
                     <small>
                     <?php
-                        $link = '<a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar" target="_BLANK">' . __('CBS municipality code', config('core.text_domain')) . '</a>';
+                        $link = '<a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar" target="_BLANK">' . __('CBS municipality code', 'owc-gravityforms-bag-address') . '</a>';
 
-                    \printf(__('Enter the %s to which the results are limited.', config('core.text_domain')), $link);
+                    \printf(__('Enter the %s to which the results are limited.', 'owc-gravityforms-bag-address'), $link);
                     ?>
                     </small>
                 </p>

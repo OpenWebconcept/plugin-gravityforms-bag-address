@@ -5,8 +5,6 @@ namespace Yard\BAG\GravityForms\BAGAddress;
 use GF_Field;
 use WP_Error;
 
-use function Yard\BAG\Foundation\Helpers\config;
-
 class BAGLookup
 {
     protected string $zip;
@@ -64,14 +62,14 @@ class BAGLookup
 
         if ($response->numFound < 1) {
             return wp_send_json_error([
-                'message' => __('No results found', config('core.text_domain')),
+                'message' => __('No results found', 'owc-gravityforms-bag-address'),
                 'results' => [],
             ]);
         }
 
         if ($response->numFound > 1) {
             return wp_send_json_error([
-                'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', config('core.text_domain')),
+                'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', 'owc-gravityforms-bag-address'),
                 'results' => []
             ]);
         }
@@ -83,13 +81,13 @@ class BAGLookup
             $this->addressInMunicipality($address) === false
         ) {
             return wp_send_json_error([
-                'message' => __('The requested address is not within the limits of the municipality.', config('core.text_domain')),
+                'message' => __('The requested address is not within the limits of the municipality.', 'owc-gravityforms-bag-address'),
                 'results' => []
             ]);
         }
 
         return wp_send_json_success([
-            'message' => __('1 result found', config('core.text_domain')),
+            'message' => __('1 result found', 'owc-gravityforms-bag-address'),
             'results' => [
                 'street'      => $address->straatnaam,
                 'houseNumber' => $address->huisnummer,
