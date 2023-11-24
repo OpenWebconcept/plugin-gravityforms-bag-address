@@ -45,6 +45,7 @@ jQuery(document).ready(function () {
 
 		var button = jQuery(this);
 		var container = button.closest('.gfield');
+		var identifier = container.attr('id');
 		var isValid = inputIsValid();
 
 		jQuery('input').on('keyup', function (e) {
@@ -80,6 +81,7 @@ jQuery(document).ready(function () {
 				homeNumberAddition: container
 					.find("input[data-name='homeNumberAddition']")
 					.val(),
+				identifier: identifier,
 			},
 			beforeSend: function (xhr) {
 				button.val('Zoekende...').prop('disabled', 'disable');
