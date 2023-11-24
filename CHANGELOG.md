@@ -3,7 +3,11 @@
 All notable changes to this plugin will be documented in this file.
 
 -   requires: 4.9
--   tested: 5.7.0
+-   tested: 6.2
+
+## v1.2.0 - 2023-11-24
+
+(feat): limit address lookup to municipality borders
 
 ## v1.1.5 - 2023-08-11
 
