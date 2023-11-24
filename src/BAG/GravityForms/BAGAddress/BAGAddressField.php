@@ -3,13 +3,12 @@
 namespace Yard\BAG\GravityForms\BAGAddress;
 
 use GF_Field;
+use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
+use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 
 use function Yard\BAG\Foundation\Helpers\config;
 
-use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
-use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
-
-if (!class_exists('\GFForms')) {
+if (!\class_exists('\GFForms')) {
     die();
 }
 
@@ -63,6 +62,7 @@ class BAGAddressField extends GF_Field
             'rules_setting',
             'description_setting',
             'css_class_setting',
+            'municipality_limit'
         ];
     }
 
@@ -85,7 +85,6 @@ class BAGAddressField extends GF_Field
      * @param string|array $value The field value from get_value_submission().
      * @param array        $form  The Form Object currently being processed.
      *
-     * @return void
      */
     public function validate($value, $form)
     {
@@ -108,50 +107,6 @@ class BAGAddressField extends GF_Field
     }
 
     /**
-     * Return all the fields available.
-     *
-     * @param array $value
-     *
-     * @return []
-     */
-    protected function getFields(array $value): array
-    {
-        return [
-            (new TextInput($this, $value))
-                ->setFieldID(1)
-                ->setFieldName('zip')
-                ->setFieldText(__('Postcode', config('core.text_domain')))
-                ->setFieldPosition('left'),
-            (new TextInput($this, $value))
-                ->setFieldID(2)
-                ->setFieldName('homeNumber')
-                ->setFieldText(__('Homenumber', config('core.text_domain')))
-                ->setFieldPosition('middle'),
-            (new TextInput($this, $value))
-                ->setFieldID(3)
-                ->setFieldName('homeNumberAddition')
-                ->setFieldText(__('Addition', config('core.text_domain')))
-                ->setFieldPosition('right'),
-            (new StringInput())
-                ->setContent(sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', config('core.text_domain')))),
-            (new StringInput())
-                ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
-            (new TextInput($this, $value))
-                ->setFieldID(5)
-                ->setFieldName('address')
-                ->setFieldText(__('Address', config('core.text_domain')))
-                ->setReadonly()
-                ->setFieldPosition('full'),
-            (new TextInput($this, $value))
-                ->setFieldID(4)
-                ->setFieldName('city')
-                ->setFieldText(__('City', config('core.text_domain')))
-                ->setReadonly()
-                ->setFieldPosition('full')
-        ];
-    }
-
-    /**
      * Returns the field inner markup.
      *
      * @param array        $form  The Form Object currently being processed.
@@ -162,22 +117,22 @@ class BAGAddressField extends GF_Field
      */
     public function get_field_input($form, $value = '', $entry = null)
     {
-        \wp_register_script('bag_address-js', plugin_dir_url(GF_BAG_FILE) . 'resources/js/bag-address.js', ['jquery'], GF_BAG_VERSION, true);
-        \wp_enqueue_script('bag_address-js');
-        \wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
+        wp_register_script('bag_address-js', plugin_dir_url(GF_BAG_FILE) . 'resources/js/bag-address.js', ['jquery'], GF_BAG_VERSION, true);
+        wp_enqueue_script('bag_address-js');
+        wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
 
-        $output = implode(' ', array_map(function ($item) {
+        $output = \implode(' ', \array_map(function ($item) {
             return $item->render();
         }, $this->getFields($value)));
 
-        return sprintf(
+        return \sprintf(
             '<div class="ginput_complex %1$s ginput_container ginput_container_bag_address" id="input_%2$d_%3$d">
                     %4$s
                 <div class="gf_clear gf_clear_complex"></div>
             </div>',
             $this->class_suffix,
             $form['id'],
-            intval($this->id),
+            \intval($this->id),
             $output
         );
     }
@@ -191,7 +146,7 @@ class BAGAddressField extends GF_Field
     {
 
         // set the default field label for the field
-        $script = sprintf("function SetDefaultValues_%s(field) {
+        $script = \sprintf("function SetDefaultValues_%s(field) {
         field.label = '%s';
         field.inputs = [
 			new Input(field.id + '.1', '%s'),
@@ -220,12 +175,12 @@ class BAGAddressField extends GF_Field
      */
     public function get_value_entry_detail($value, $currency = '', $use_text = false, $format = 'html', $media = 'screen')
     {
-        if (is_array($value)) {
-            $zip                = trim(rgget($this->id . '.1', $value));
-            $homeNumber         = trim(rgget($this->id . '.2', $value));
-            $homeNumberAddition = trim(rgget($this->id . '.3', $value));
-            $city               = trim(rgget($this->id . '.4', $value));
-            $address            = trim(rgget($this->id . '.5', $value));
+        if (\is_array($value)) {
+            $zip                = \trim(rgget($this->id . '.1', $value));
+            $homeNumber         = \trim(rgget($this->id . '.2', $value));
+            $homeNumberAddition = \trim(rgget($this->id . '.3', $value));
+            $city               = \trim(rgget($this->id . '.4', $value));
+            $address            = \trim(rgget($this->id . '.5', $value));
 
             $return = !empty($address) ? $address : "";
             $return .= !empty($homeNumber) ? " $homeNumber" : "";
@@ -241,5 +196,49 @@ class BAGAddressField extends GF_Field
         }
 
         return $return;
+    }
+
+    /**
+     * Return all the fields available.
+     *
+     * @param array $value
+     *
+     * @return []
+     */
+    protected function getFields(array $value): array
+    {
+        return [
+            (new TextInput($this, $value))
+                ->setFieldID(1)
+                ->setFieldName('zip')
+                ->setFieldText(__('Postcode', config('core.text_domain')))
+                ->setFieldPosition('left'),
+            (new TextInput($this, $value))
+                ->setFieldID(2)
+                ->setFieldName('homeNumber')
+                ->setFieldText(__('Homenumber', config('core.text_domain')))
+                ->setFieldPosition('middle'),
+            (new TextInput($this, $value))
+                ->setFieldID(3)
+                ->setFieldName('homeNumberAddition')
+                ->setFieldText(__('Addition', config('core.text_domain')))
+                ->setFieldPosition('right'),
+            (new StringInput())
+                ->setContent(\sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', config('core.text_domain')))),
+            (new StringInput())
+                ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
+            (new TextInput($this, $value))
+                ->setFieldID(5)
+                ->setFieldName('address')
+                ->setFieldText(__('Address', config('core.text_domain')))
+                ->setReadonly()
+                ->setFieldPosition('full'),
+            (new TextInput($this, $value))
+                ->setFieldID(4)
+                ->setFieldName('city')
+                ->setFieldText(__('City', config('core.text_domain')))
+                ->setReadonly()
+                ->setFieldPosition('full')
+        ];
     }
 }
