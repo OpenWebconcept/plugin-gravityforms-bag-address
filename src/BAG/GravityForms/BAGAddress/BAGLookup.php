@@ -57,7 +57,7 @@ class BAGLookup
         }
 
         $body = wp_remote_retrieve_body($response);
-        $data = \json_decode($body);
+        $data = json_decode($body);
         $response = $data->response;
 
         if ($response->numFound < 1) {
@@ -100,7 +100,7 @@ class BAGLookup
 
     protected function lookupLimitedToMunicipality(): bool
     {
-        return \property_exists($this->field, 'municipality_limit')
+        return property_exists($this->field, 'municipality_limit')
             && ! empty($this->field->municipality_limit);
     }
 
@@ -123,8 +123,8 @@ class BAGLookup
      */
     protected function cleanUpInput(string $input = ''): string
     {
-        $output = esc_attr(\trim(($_POST[$input] ?? '')));
-        $output = \preg_replace('/\s/', '', $output);
+        $output = esc_attr(trim(($_POST[$input] ?? '')));
+        $output = preg_replace('/\s/', '', $output);
 
         return (string) $output;
     }
@@ -134,7 +134,7 @@ class BAGLookup
      */
     protected function getField(): ?GF_Field
     {
-        \preg_match('/field_([\d]+)_([\d]+)/', $this->cleanUpInput('identifier'), $matches);
+        preg_match('/field_([\d]+)_([\d]+)/', $this->cleanUpInput('identifier'), $matches);
 
         if (empty($matches) || empty($matches[0])) {
             return null;
@@ -155,9 +155,9 @@ class BAGLookup
         $params = ['postcode' => $this->zip, 'type' => 'adres'];
 
         if (empty($this->homeNumberAddition)) {
-            $params = \array_merge($params, ['huis_nlt' => $this->homeNumber]);
+            $params = array_merge($params, ['huis_nlt' => $this->homeNumber]);
         } else {
-            $params = \array_merge($params, [
+            $params = array_merge($params, [
                 'huisnummer' => $this->homeNumber,
                 'huisletter' => $this->homeNumberAddition,
             ]);
@@ -167,9 +167,9 @@ class BAGLookup
             return !empty($item);
         });
 
-        $query = \http_build_query($filteredParameters, null, '%20and%20');
-        $query = \str_replace('=', ':', $query);
+        $query = http_build_query($filteredParameters, null, '%20and%20');
+        $query = str_replace('=', ':', $query);
 
-        return \sprintf('%s%s', $this->url, $query);
+        return sprintf('%s%s', $this->url, $query);
     }
 }

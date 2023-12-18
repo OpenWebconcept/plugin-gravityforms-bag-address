@@ -6,7 +6,7 @@ use GF_Field;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 
-if (!\class_exists('\GFForms')) {
+if (!class_exists('\GFForms')) {
     die();
 }
 
@@ -119,18 +119,18 @@ class BAGAddressField extends GF_Field
         wp_enqueue_script('bag_address-js');
         wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
 
-        $output = \implode(' ', \array_map(function ($item) {
+        $output = implode(' ', array_map(function ($item) {
             return $item->render();
         }, $this->getFields($value)));
 
-        return \sprintf(
+        return sprintf(
             '<div class="ginput_complex %1$s ginput_container ginput_container_bag_address" id="input_%2$d_%3$d">
                     %4$s
                 <div class="gf_clear gf_clear_complex"></div>
             </div>',
             $this->class_suffix,
             $form['id'],
-            \intval($this->id),
+            intval($this->id),
             $output
         );
     }
@@ -144,7 +144,7 @@ class BAGAddressField extends GF_Field
     {
 
         // set the default field label for the field
-        $script = \sprintf("function SetDefaultValues_%s(field) {
+        $script = sprintf("function SetDefaultValues_%s(field) {
         field.label = '%s';
         field.inputs = [
 			new Input(field.id + '.1', '%s'),
@@ -173,12 +173,12 @@ class BAGAddressField extends GF_Field
      */
     public function get_value_entry_detail($value, $currency = '', $use_text = false, $format = 'html', $media = 'screen')
     {
-        if (\is_array($value)) {
-            $zip                = \trim(rgget($this->id . '.1', $value));
-            $homeNumber         = \trim(rgget($this->id . '.2', $value));
-            $homeNumberAddition = \trim(rgget($this->id . '.3', $value));
-            $city               = \trim(rgget($this->id . '.4', $value));
-            $address            = \trim(rgget($this->id . '.5', $value));
+        if (is_array($value)) {
+            $zip                = trim(rgget($this->id . '.1', $value));
+            $homeNumber         = trim(rgget($this->id . '.2', $value));
+            $homeNumberAddition = trim(rgget($this->id . '.3', $value));
+            $city               = trim(rgget($this->id . '.4', $value));
+            $address            = trim(rgget($this->id . '.5', $value));
 
             $return = !empty($address) ? $address : "";
             $return .= !empty($homeNumber) ? " $homeNumber" : "";
@@ -222,7 +222,7 @@ class BAGAddressField extends GF_Field
                 ->setFieldText(__('Addition', 'owc-gravityforms-bag-address'))
                 ->setFieldPosition('right'),
             (new StringInput())
-                ->setContent(\sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', 'owc-gravityforms-bag-address'))),
+                ->setContent(sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', 'owc-gravityforms-bag-address'))),
             (new StringInput())
                 ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
             (new TextInput($this, $value))
