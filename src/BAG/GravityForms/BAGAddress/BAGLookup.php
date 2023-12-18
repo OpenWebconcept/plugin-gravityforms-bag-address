@@ -2,39 +2,17 @@
 
 namespace Yard\BAG\GravityForms\BAGAddress;
 
-use function Yard\BAG\Foundation\Helpers\config;
-
+use GF_Field;
 use WP_Error;
 
 class BAGLookup
 {
-    /**
-     * Zip code string
-     *
-     * @var string
-     */
-    protected $zip = '';
+    protected string $zip;
+    protected string $homeNumber;
+    protected string $homeNumberAddition;
+    protected ?GF_Field $field;
 
-    /**
-     * Homenumber string
-     *
-     * @var string
-     */
-    protected $homeNumber = '';
-
-    /**
-     * Homenumber addition string
-     *
-     * @var string
-     */
-    protected $homeNumberAddition = '';
-
-    /**
-     * URL for BAG.
-     *
-     * @var string
-     */
-    private $url = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=';
+    protected string $url = 'https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=';
 
     final public function __construct()
     {
@@ -42,57 +20,7 @@ class BAGLookup
         $this->homeNumber         = $this->cleanUpInput('homeNumber');
         $this->homeNumberAddition = $this->cleanUpInput('homeNumberAddition');
         $this->url                = $this->parseURLvariables();
-    }
-
-    /**
-     * Process the incoming response object.
-     *
-     * @param array|WP_Error $response HTTP response.
-     *
-     * @return string
-     */
-    protected function processResponse($response): string
-    {
-        if (is_wp_error($response)) {
-            return wp_send_json_error(
-                [
-                    'message' => 'Er is een fout opgetreden',
-                    'results' => $response
-                ]
-            );
-        }
-        $body     = wp_remote_retrieve_body($response);
-        $data     = json_decode($body);
-        $response = $data->response;
-        if (1 > $response->numFound) {
-            return wp_send_json_error(
-                [
-                    'message' => __('No results found', config('core.text_domain')),
-                    'results' => [],
-                ]
-            );
-        }
-
-        if (1 === $response->numFound) {
-            $address = new BAGEntity($response->docs[0]);
-            return \wp_send_json_success([
-                'message' => __('1 result found', config('core.text_domain')),
-                'results' => [
-                    'street'      => $address->straatnaam,
-                    'houseNumber' => $address->huisnummer,
-                    'city'        => $address->woonplaatsnaam,
-                    'zip'         => $address->postcode,
-                    'displayname' => $address->weergavenaam
-                ]
-            ]);
-        }
-
-        return wp_send_json_error(
-            [
-                'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', config('core.text_domain')),
-                'results' => []
-            ]
-        );
+        $this->field              = $this->getField();
     }
 
     /**
@@ -106,43 +34,7 @@ class BAGLookup
     }
 
     /**
-     * Parse the variables in the BAG url.
-     *
-     * @return string
-     */
-    private function parseURLvariables(): string
-    {
-        $params = [
-            'postcode' => $this->zip,
-            'type'     => 'adres'
-        ];
-
-        if (empty($this->homeNumberAddition)) {
-            $params = array_merge($params, [
-                'huis_nlt' => $this->homeNumber,
-            ]);
-        } else {
-            $params = array_merge($params, [
-                'huisnummer' => $this->homeNumber,
-                'huisletter' => $this->homeNumberAddition,
-            ]);
-        }
-
-        $filteredParameters = array_filter(
-            $params,
-            function ($item) {
-                return !empty($item);
-            }
-        );
-
-        $query = http_build_query($filteredParameters, null, '%20and%20');
-        $query = str_replace('=', ':', $query);
-        return sprintf('%s%s', $this->url, $query);
-    }
-
-    /**
      * Actually execute the remote request.
-     *
      * @return string
      */
     public function execute(): string
@@ -151,8 +43,74 @@ class BAGLookup
     }
 
     /**
+     * Process the incoming response object.
+     * @param  array|WP_Error $response HTTP response.
+     * @return string
+     */
+    protected function processResponse($response): string
+    {
+        if (is_wp_error($response)) {
+            return wp_send_json_error([
+                'message' => 'Er is een fout opgetreden',
+                'results' => $response
+            ]);
+        }
+
+        $body = wp_remote_retrieve_body($response);
+        $data = json_decode($body);
+        $response = $data->response;
+
+        if ($response->numFound < 1) {
+            return wp_send_json_error([
+                'message' => __('No results found', 'owc-gravityforms-bag-address'),
+                'results' => [],
+            ]);
+        }
+
+        if ($response->numFound > 1) {
+            return wp_send_json_error([
+                'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', 'owc-gravityforms-bag-address'),
+                'results' => []
+            ]);
+        }
+
+        $address = new BAGEntity($response->docs[0]);
+
+        if (
+            $this->lookupLimitedToMunicipality() &&
+            $this->addressInMunicipality($address) === false
+        ) {
+            return wp_send_json_error([
+                'message' => __('The requested address is not within the limits of the municipality.', 'owc-gravityforms-bag-address'),
+                'results' => []
+            ]);
+        }
+
+        return wp_send_json_success([
+            'message' => __('1 result found', 'owc-gravityforms-bag-address'),
+            'results' => [
+                'street'      => $address->straatnaam,
+                'houseNumber' => $address->huisnummer,
+                'city'        => $address->woonplaatsnaam,
+                'zip'         => $address->postcode,
+                'displayname' => $address->weergavenaam
+            ]
+        ]);
+    }
+
+    protected function lookupLimitedToMunicipality(): bool
+    {
+        return property_exists($this->field, 'municipality_limit')
+            && ! empty($this->field->municipality_limit);
+    }
+
+    protected function addressInMunicipality(BAGEntity $address): bool
+    {
+        return $this->field->municipality_limit === $address->gemeentecode;
+    }
+
+    /**
      * Makes the call to remote.
-     *
      * @return WP_Error|array The response or WP_Error on failure.
      */
     protected function call()
@@ -161,20 +119,57 @@ class BAGLookup
     }
 
     /**
-     * Format the zipcode.
      * Removes any spaces, escapes weird characters.
-     *
-     * @param string $input
-     *
-     * @return string
      */
-    protected function cleanUpInput($input = ''): string
+    protected function cleanUpInput(string $input = ''): string
     {
-        $output = isset($_POST[$input]) ? esc_attr(trim($_POST[$input])) : '';
+        $output = esc_attr(trim(($_POST[$input] ?? '')));
         $output = preg_replace('/\s/', '', $output);
-        if (null === $output) {
-            return '';
+
+        return (string) $output;
+    }
+
+    /**
+     * Gets the GF_Field instance from the identifier in the request.
+     */
+    protected function getField(): ?GF_Field
+    {
+        preg_match('/field_([\d]+)_([\d]+)/', $this->cleanUpInput('identifier'), $matches);
+
+        if (empty($matches) || empty($matches[0])) {
+            return null;
         }
-        return $output;
+
+        [, $formId, $fieldId] = $matches;
+
+        $field = \GFAPI::get_field($formId, $fieldId);
+
+        return $field ?: null;
+    }
+
+    /**
+     * Parse the variables in the BAG url.
+     */
+    private function parseURLvariables(): string
+    {
+        $params = ['postcode' => $this->zip, 'type' => 'adres'];
+
+        if (empty($this->homeNumberAddition)) {
+            $params = array_merge($params, ['huis_nlt' => $this->homeNumber]);
+        } else {
+            $params = array_merge($params, [
+                'huisnummer' => $this->homeNumber,
+                'huisletter' => $this->homeNumberAddition,
+            ]);
+        }
+
+        $filteredParameters = \array_filter($params, function ($item) {
+            return !empty($item);
+        });
+
+        $query = http_build_query($filteredParameters, null, '%20and%20');
+        $query = str_replace('=', ':', $query);
+
+        return sprintf('%s%s', $this->url, $query);
     }
 }

@@ -3,11 +3,8 @@
 namespace Yard\BAG\GravityForms\BAGAddress;
 
 use GF_Field;
-
-use function Yard\BAG\Foundation\Helpers\config;
-
-use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
+use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
 
 if (!class_exists('\GFForms')) {
     die();
@@ -27,7 +24,7 @@ class BAGAddressField extends GF_Field
      */
     public function get_form_editor_field_title()
     {
-        return esc_attr__('BAG Address', config('core.text_domain'));
+        return esc_attr__('BAG Address', 'owc-gravityforms-bag-address');
     }
 
     /**
@@ -63,6 +60,7 @@ class BAGAddressField extends GF_Field
             'rules_setting',
             'description_setting',
             'css_class_setting',
+            'municipality_limit'
         ];
     }
 
@@ -85,7 +83,6 @@ class BAGAddressField extends GF_Field
      * @param string|array $value The field value from get_value_submission().
      * @param array        $form  The Form Object currently being processed.
      *
-     * @return void
      */
     public function validate($value, $form)
     {
@@ -95,7 +92,7 @@ class BAGAddressField extends GF_Field
 
             if (empty($zip) && empty($homeNumber)) {
                 $this->failed_validation  = true;
-                $this->validation_message = empty($this->errorMessage) ? esc_html__('This field is required. Please enter a complete address.', config('core.text_domain')) : $this->errorMessage;
+                $this->validation_message = empty($this->errorMessage) ? esc_html__('This field is required. Please enter a complete address.', 'owc-gravityforms-bag-address') : $this->errorMessage;
             }
         }
 
@@ -103,52 +100,8 @@ class BAGAddressField extends GF_Field
         $address = rgar($value, $this->id . '.5');
         if (empty($city) && empty($address)) {
             $this->failed_validation  = true;
-            $this->validation_message = empty($this->errorMessage) ? esc_html__('This field is required. Please enter a complete address.', config('core.text_domain')) : $this->errorMessage;
+            $this->validation_message = empty($this->errorMessage) ? esc_html__('This field is required. Please enter a complete address.', 'owc-gravityforms-bag-address') : $this->errorMessage;
         }
-    }
-
-    /**
-     * Return all the fields available.
-     *
-     * @param array $value
-     *
-     * @return []
-     */
-    protected function getFields(array $value): array
-    {
-        return [
-            (new TextInput($this, $value))
-                ->setFieldID(1)
-                ->setFieldName('zip')
-                ->setFieldText(__('Postcode', config('core.text_domain')))
-                ->setFieldPosition('left'),
-            (new TextInput($this, $value))
-                ->setFieldID(2)
-                ->setFieldName('homeNumber')
-                ->setFieldText(__('Homenumber', config('core.text_domain')))
-                ->setFieldPosition('middle'),
-            (new TextInput($this, $value))
-                ->setFieldID(3)
-                ->setFieldName('homeNumberAddition')
-                ->setFieldText(__('Addition', config('core.text_domain')))
-                ->setFieldPosition('right'),
-            (new StringInput())
-                ->setContent(sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', config('core.text_domain')))),
-            (new StringInput())
-                ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
-            (new TextInput($this, $value))
-                ->setFieldID(5)
-                ->setFieldName('address')
-                ->setFieldText(__('Address', config('core.text_domain')))
-                ->setReadonly()
-                ->setFieldPosition('full'),
-            (new TextInput($this, $value))
-                ->setFieldID(4)
-                ->setFieldName('city')
-                ->setFieldText(__('City', config('core.text_domain')))
-                ->setReadonly()
-                ->setFieldPosition('full')
-        ];
     }
 
     /**
@@ -162,9 +115,9 @@ class BAGAddressField extends GF_Field
      */
     public function get_field_input($form, $value = '', $entry = null)
     {
-        \wp_register_script('bag_address-js', plugin_dir_url(GF_BAG_FILE) . 'resources/js/bag-address.js', ['jquery'], GF_BAG_VERSION, true);
-        \wp_enqueue_script('bag_address-js');
-        \wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
+        wp_register_script('bag_address-js', plugin_dir_url(GF_BAG_FILE) . 'resources/js/bag-address.js', ['jquery'], GF_BAG_VERSION, true);
+        wp_enqueue_script('bag_address-js');
+        wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
 
         $output = implode(' ', array_map(function ($item) {
             return $item->render();
@@ -241,5 +194,49 @@ class BAGAddressField extends GF_Field
         }
 
         return $return;
+    }
+
+    /**
+     * Return all the fields available.
+     *
+     * @param array $value
+     *
+     * @return []
+     */
+    protected function getFields(array $value): array
+    {
+        return [
+            (new TextInput($this, $value))
+                ->setFieldID(1)
+                ->setFieldName('zip')
+                ->setFieldText(__('Postcode', 'owc-gravityforms-bag-address'))
+                ->setFieldPosition('left'),
+            (new TextInput($this, $value))
+                ->setFieldID(2)
+                ->setFieldName('homeNumber')
+                ->setFieldText(__('Homenumber', 'owc-gravityforms-bag-address'))
+                ->setFieldPosition('middle'),
+            (new TextInput($this, $value))
+                ->setFieldID(3)
+                ->setFieldName('homeNumberAddition')
+                ->setFieldText(__('Addition', 'owc-gravityforms-bag-address'))
+                ->setFieldPosition('right'),
+            (new StringInput())
+                ->setContent(sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', 'owc-gravityforms-bag-address'))),
+            (new StringInput())
+                ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
+            (new TextInput($this, $value))
+                ->setFieldID(5)
+                ->setFieldName('address')
+                ->setFieldText(__('Address', 'owc-gravityforms-bag-address'))
+                ->setReadonly()
+                ->setFieldPosition('full'),
+            (new TextInput($this, $value))
+                ->setFieldID(4)
+                ->setFieldName('city')
+                ->setFieldText(__('City', 'owc-gravityforms-bag-address'))
+                ->setReadonly()
+                ->setFieldPosition('full')
+        ];
     }
 }
