@@ -3,8 +3,8 @@
 namespace Yard\BAG\GravityForms\BAGAddress;
 
 use GF_Field;
-use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
 use Yard\BAG\GravityForms\BAGAddress\Inputs\StringInput;
+use Yard\BAG\GravityForms\BAGAddress\Inputs\TextInput;
 
 if (!class_exists('\GFForms')) {
     die();

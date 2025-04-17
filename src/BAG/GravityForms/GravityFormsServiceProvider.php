@@ -4,9 +4,9 @@ namespace Yard\BAG\GravityForms;
 
 use GF_Fields;
 use Yard\BAG\Foundation\ServiceProvider;
-use Yard\BAG\GravityForms\BAGAddress\BAGLookup;
 use Yard\BAG\GravityForms\BAGAddress\BAGAddressField;
 use Yard\BAG\GravityForms\BAGAddress\BAGFieldSettings;
+use Yard\BAG\GravityForms\BAGAddress\BAGLookup;
 
 class GravityFormsServiceProvider extends ServiceProvider
 {

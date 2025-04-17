@@ -12,7 +12,7 @@ class BAGFieldSettings
 
     public function getFieldSettings(int $position): void
     {
-        if ($position == 100) {
+        if (100 == $position) {
             ?>
             <li class="municipality_limit field_setting">
                 <label for="field_municipality_limit" class="section_label">
@@ -23,8 +23,8 @@ class BAGFieldSettings
                     <?php
                         $link = '<a href="https://www.cbs.nl/nl-nl/onze-diensten/methoden/classificaties/overig/gemeentelijke-indelingen-per-jaar" target="_BLANK">' . __('CBS municipality code', 'owc-gravityforms-bag-address') . '</a>';
 
-                    \printf(__('Enter the %s to which the results are limited.', 'owc-gravityforms-bag-address'), $link);
-                    ?>
+            \printf(__('Enter the %s to which the results are limited.', 'owc-gravityforms-bag-address'), $link);
+            ?>
                     </small>
                 </p>
                 <input type="text" id="field_municipality_limit" name="field_municipality_limit" value="">

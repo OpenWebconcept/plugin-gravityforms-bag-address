@@ -56,18 +56,18 @@ class BAGLookup
             ]);
         }
 
-        $body = wp_remote_retrieve_body($response);
-        $data = json_decode($body);
+        $body     = wp_remote_retrieve_body($response);
+        $data     = json_decode($body);
         $response = $data->response;
 
-        if ($response->numFound < 1) {
+        if (1 > $response->numFound) {
             return wp_send_json_error([
                 'message' => __('No results found', 'owc-gravityforms-bag-address'),
                 'results' => [],
             ]);
         }
 
-        if ($response->numFound > 1) {
+        if (1 < $response->numFound) {
             return wp_send_json_error([
                 'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', 'owc-gravityforms-bag-address'),
                 'results' => []
@@ -153,7 +153,7 @@ class BAGLookup
     private function parseURLvariables(): string
     {
         $arg_and = ['type:adres'];
-        $arg_or = [];
+        $arg_or  = [];
 
         if ($this->zip) {
             $arg_and[] = "postcode:{$this->zip}";
@@ -170,7 +170,7 @@ class BAGLookup
             ];
         }
         
-        $arg_or = array_map(function($group) { 
+        $arg_or = array_map(function ($group) {
             return '( ' . implode(' or ', $group) . ' )';
         }, $arg_or);
 

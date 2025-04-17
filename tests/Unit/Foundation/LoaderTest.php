@@ -25,7 +25,7 @@ class LoaderTest extends TestCase
 
         $loader->addAction('test-hook', $this, 'test', 10, 1);
 
-        $this->assertClassHasAttribute('actions', Loader::class);
+        $this->assertTrue(property_exists(Loader::class, 'actions'), 'Loader class should have an "actions" property');
         $this->assertCount(1, $loader->getActions());
 
         $loader->addAction('test-hook-2', $this, 'test', 10, 1);
@@ -40,7 +40,7 @@ class LoaderTest extends TestCase
 
         $loader->addFilter('test-hook', $this, 'test', 10, 1);
 
-        $this->assertClassHasAttribute('filters', Loader::class);
+        $this->assertTrue(property_exists(Loader::class, 'filters'), 'Loader class should have a "filters" property');
         $this->assertCount(1, $loader->getFilters());
 
         $loader->addFilter('test-hook-2', $this, 'test', 10, 1);
