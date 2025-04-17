@@ -3,7 +3,13 @@
 All notable changes to this plugin will be documented in this file.
 
 -   requires: 4.9
--   tested: 6.2
+-   tested: 6.8
+
+## v1.2.1 - 2025-04-17
+
+(refactor): improved the url query logic
+(chore): upgraded packages and removed deprecated package
+(chore): format code
 
 ## v1.2.0 - 2023-11-24
 
