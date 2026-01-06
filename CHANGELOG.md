@@ -3,7 +3,13 @@
 All notable changes to this plugin will be documented in this file.
 
 -   requires: 4.9
--   tested: 6.8
+-   tested: 6.9
+
+## v1.2.2 - 2026-01-06
+
+(refactor): enhance address lookup functionality and improve input validation
+(chore): update translations
+(chore): upgraded packages
 
 ## v1.2.1 - 2025-04-17
 
