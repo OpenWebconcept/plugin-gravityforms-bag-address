@@ -1,33 +1,37 @@
-# Copyright (C) 2023 Yard | Digital Agency
+# Copyright (C) 2026 Yard | Digital Agency
 # This file is distributed under the GPL3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Yard | GravityForms Bag Address 1.1.5\n"
+"Project-Id-Version: Yard | GravityForms Bag Address 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gravityforms-bag-address\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-11-24T14:09:00+00:00\n"
+"POT-Creation-Date: 2026-01-06T09:58:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: owc-gravityforms-bag-address\n"
 
 #. Plugin Name of the plugin
+#: plugin.php
 msgid "Yard | GravityForms Bag Address"
 msgstr ""
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: plugin.php
 msgid "https://www.yard.nl"
 msgstr ""
 
 #. Description of the plugin
+#: plugin.php
 msgid "Add a BAG address field to GravityForms."
 msgstr ""
 
 #. Author of the plugin
+#: plugin.php
 msgid "Yard | Digital Agency"
 msgstr ""
 
@@ -80,14 +84,12 @@ msgstr ""
 msgid "No results found"
 msgstr ""
 
-#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:72
-msgid "Found too many results. Try to make the address more specific. For example with a house number addition"
-msgstr ""
-
-#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:84
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:80
 msgid "The requested address is not within the limits of the municipality."
 msgstr ""
 
-#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:90
-msgid "1 result found"
-msgstr ""
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:102
+msgid "%d result found"
+msgid_plural "%d results found"
+msgstr[0] ""
+msgstr[1] ""

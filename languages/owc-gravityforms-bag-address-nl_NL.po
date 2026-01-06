@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OWC GravityForms BAG Address\n"
-"POT-Creation-Date: 2023-11-24 15:09+0100\n"
-"PO-Revision-Date: 2023-11-24 15:11+0100\n"
+"POT-Creation-Date: 2026-01-06 11:06+0100\n"
+"PO-Revision-Date: 2026-01-06 11:07+0100\n"
 "Last-Translator: Edwin Siebel <edwin@yard.nl>\n"
 "Language-Team: Yard | Digital Agency <info@yard.nl>\n"
 "Language: nl\n"
@@ -10,9 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.1\n"
-"X-Poedit-KeywordsList: __;_x;_e;_ex;_n;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
-"esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-KeywordsList: "
+"__;_x;_e;_ex;_n:1,2;_nx;esc_attr__;esc_attr_e;esc_attr_x;esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: tests\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:27
 msgid "BAG Address"
-msgstr "BAG adres"
+msgstr "BAG-adres"
 
 #: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:95
 #: src/BAG/GravityForms/BAGAddress/BAGAddressField.php:103
@@ -70,21 +70,26 @@ msgstr "Voer de %s in waarop de resultaten gelimiteerd worden."
 msgid "No results found"
 msgstr "Geen resultaten gevonden"
 
-#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:72
-msgid ""
-"Found too many results. Try to make the address more specific. For example "
-"with a house number addition"
-msgstr ""
-"Teveel resultaten gevonden. Probeer het adres specifieker te maken, "
-"bijvoorbeeld met een huisnummer toevoeging"
-
-#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:84
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:80
 msgid "The requested address is not within the limits of the municipality."
 msgstr "Het opgegeven adres valt niet binnen de gemeente grenzen."
 
-#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:90
-msgid "1 result found"
-msgstr "1 resultaat gevonden"
+#: src/BAG/GravityForms/BAGAddress/BAGLookup.php:103
+#, php-format
+msgid "%d result found"
+msgid_plural "%d results found"
+msgstr[0] "%d resultaat gevonden"
+msgstr[1] "%d resultaten gevonden"
+
+#~ msgid ""
+#~ "Found too many results. Try to make the address more specific. For "
+#~ "example with a house number addition"
+#~ msgstr ""
+#~ "Teveel resultaten gevonden. Probeer het adres specifieker te maken, "
+#~ "bijvoorbeeld met een huisnummer toevoeging"
+
+#~ msgid "1 result found"
+#~ msgstr "1 resultaat gevonden"
 
 #~ msgid "No remote connector"
 #~ msgstr "Geen remote connector"
