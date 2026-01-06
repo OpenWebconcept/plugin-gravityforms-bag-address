@@ -26,7 +26,7 @@ jQuery(document).ready(function () {
 		return validElements.length >= 2 && isEven == 0;
 	}
 
-	jQuery('.ginput_container_bag_address input').on('input', function (e) {
+	jQuery('.ginput_container_bag_address input[data-name="zip"], .ginput_container_bag_address input[data-name="homeNumber"], .ginput_container_bag_address input[data-name="homeNumberAddition"]').on('input', function (e) {
 		if (!inputIsValid()) {
 			return;
 		}
@@ -91,26 +91,35 @@ jQuery(document).ready(function () {
 			},
 			success: function (response) {
 				if (true === response.success) {
-					container
-						.find("input[data-name='address']")
-						.val(
-							response.data.results.street
-								? response.data.results.street
-								: ''
-						);
-					container
-						.find("input[data-name='city']")
-						.val(
-							response.data.results.city
-								? response.data.results.city
-								: ''
-						);
+					if (response.data.results.length > 0) {
+						container
+							.find("input[data-name='address']")
+							.val(
+								response.data.results[0].street
+									? response.data.results[0].street
+									: ''
+							);
+						container
+							.find("input[data-name='city']")
+							.val(
+								response.data.results[0].city
+									? response.data.results[0].city
+									: ''
+							);
+					}
+
 					container.find('.result').html(response.data.message);
 				} else {
 					container.find('.result').html(response.data.message);
 				}
 			},
 			complete: function () {
+				container
+					.find("input[data-name='address']")
+					.prop('readonly', false);
+				container
+					.find("input[data-name='city']")
+					.prop('readonly', false);
 				button.val('Zoek').prop('disabled', false);
 			},
 		});

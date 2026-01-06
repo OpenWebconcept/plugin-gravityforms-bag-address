@@ -28,4 +28,15 @@ class BAGEntity
     {
         return $this->data->{$key} ?? '';
     }
+
+    public function toArray(): array
+    {
+        return [
+            'street'      => $this->data->straatnaam,
+            'houseNumber' => $this->data->huisnummer,
+            'city'        => $this->data->woonplaatsnaam,
+            'zip'         => $this->data->postcode,
+            'displayname' => $this->data->weergavenaam
+        ];
+    }
 }

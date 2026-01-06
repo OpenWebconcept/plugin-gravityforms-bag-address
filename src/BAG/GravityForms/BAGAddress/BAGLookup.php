@@ -67,34 +67,47 @@ class BAGLookup
             ]);
         }
 
-        if (1 < $response->numFound) {
-            return wp_send_json_error([
-                'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', 'owc-gravityforms-bag-address'),
-                'results' => []
-            ]);
+        $results = [];
+
+        foreach ($response->docs as $doc) {
+            $address = new BAGEntity($doc);
+
+            if (
+                $this->lookupLimitedToMunicipality() &&
+                $this->addressInMunicipality($address) === false
+            ) {
+                return wp_send_json_error([
+                    'message' => __('The requested address is not within the limits of the municipality.', 'owc-gravityforms-bag-address'),
+                    'results' => []
+                ]);
+            }
+
+            $results[] = $address->toArray();
         }
 
-        $address = new BAGEntity($response->docs[0]);
+        // Remove duplicate results
+        $results = array_values(
+            array_map(
+                'unserialize',
+                array_unique(
+                    array_map('serialize', $results)
+                )
+            )
+        );
 
-        if (
-            $this->lookupLimitedToMunicipality() &&
-            $this->addressInMunicipality($address) === false
-        ) {
-            return wp_send_json_error([
-                'message' => __('The requested address is not within the limits of the municipality.', 'owc-gravityforms-bag-address'),
-                'results' => []
-            ]);
-        }
+        $count = count($results);
 
         return wp_send_json_success([
-            'message' => __('1 result found', 'owc-gravityforms-bag-address'),
-            'results' => [
-                'street'      => $address->straatnaam,
-                'houseNumber' => $address->huisnummer,
-                'city'        => $address->woonplaatsnaam,
-                'zip'         => $address->postcode,
-                'displayname' => $address->weergavenaam
-            ]
+            'message' => sprintf(
+                _n(
+                    '%d result found',
+                    '%d results found',
+                    $count,
+                    'owc-gravityforms-bag-address'
+                ),
+                $count
+            ),
+            'results' => $results
         ]);
     }
 
@@ -169,7 +182,7 @@ class BAGLookup
                 "huisletter:{$this->homeNumberAddition}",
             ];
         }
-        
+
         $arg_or = array_map(function ($group) {
             return '( ' . implode(' or ', $group) . ' )';
         }, $arg_or);
