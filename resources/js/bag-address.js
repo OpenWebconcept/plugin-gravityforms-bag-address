@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
 		}, 300);
 	});
 
-	jQuery('.js-bag-lookup').on('click', function (e) {
+	jQuery(document).on('click', '.js-bag-lookup', function (e) {
 		e.preventDefault();
 
 		var button = jQuery(this);
