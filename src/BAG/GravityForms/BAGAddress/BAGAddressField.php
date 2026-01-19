@@ -222,7 +222,7 @@ class BAGAddressField extends GF_Field
                 ->setFieldText(__('Addition', 'owc-gravityforms-bag-address'))
                 ->setFieldPosition('right'),
             (new StringInput())
-                ->setContent(sprintf('<span class="ginput_right"><input type="submit" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', 'owc-gravityforms-bag-address'))),
+                ->setContent(sprintf('<span class="ginput_right"><input type="button" class="js-bag-lookup | bag-search-button button" value="%s"></span>', __('Search', 'owc-gravityforms-bag-address'))),
             (new StringInput())
                 ->setContent('<div class="result" style="display:block; height: 25px"></div>'),
             (new TextInput($this, $value))
