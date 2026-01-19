@@ -40,6 +40,20 @@ jQuery(document).ready(function () {
 		}, 300);
 	});
 
+	jQuery(document).on('keydown', 'input', function(e) {
+		if (!jQuery(this).data('name')) return;
+
+		if (e.key === 'Enter' || e.keyCode === 13) {
+			e.preventDefault();
+			e.stopPropagation();
+			
+			jQuery(this)
+				.closest('.gfield')
+				.find('input.js-bag-lookup[type="button"]')
+				.click();
+		}
+	});
+
 	jQuery(document).on('click', '.js-bag-lookup', function (e) {
 		e.preventDefault();
 
@@ -47,19 +61,6 @@ jQuery(document).ready(function () {
 		var container = button.closest('.gfield');
 		var identifier = container.attr('id');
 		var isValid = inputIsValid();
-
-		jQuery('input').on('keyup', function (e) {
-			if (!jQuery(this).data('name')) {
-				return;
-			}
-
-			if (e.key === 'Enter' || e.keyCode === 13) {
-				jQuery(this)
-					.closest('.gfield')
-					.find('input[type="submit"]')
-					.click();
-			}
-		});
 
 		if (isValid === false) {
 			container
