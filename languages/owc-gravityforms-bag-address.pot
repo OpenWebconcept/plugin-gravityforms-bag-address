@@ -2,7 +2,7 @@
 # This file is distributed under the GPL3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Yard | GravityForms Bag Address 1.2.2\n"
+"Project-Id-Version: Yard | GravityForms Bag Address 1.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gravityforms-bag-address\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
