@@ -111,34 +111,35 @@ class BAGLookup
      * @return string
      */
     private function parseURLvariables(): string
-    {
-        $params = [
-            'postcode' => $this->zip,
-            'type'     => 'adres'
-        ];
+	{
+		$arg_and = ['type:adres'];
+		$arg_or  = [];
 
-        if (empty($this->homeNumberAddition)) {
-            $params = array_merge($params, [
-                'huis_nlt' => $this->homeNumber,
-            ]);
-        } else {
-            $params = array_merge($params, [
-                'huisnummer' => $this->homeNumber,
-                'huisletter' => $this->homeNumberAddition,
-            ]);
-        }
+		if (!empty($this->zip)) {
+			$arg_and[] = "postcode:{$this->zip}";
+		}
 
-        $filteredParameters = array_filter(
-            $params,
-            function ($item) {
-                return !empty($item);
-            }
-        );
+		if (!empty($this->homeNumber)) {
+			$arg_and[] = "huisnummer:{$this->homeNumber}";
+		}
 
-        $query = http_build_query($filteredParameters, null, '%20and%20');
-        $query = str_replace('=', ':', $query);
-        return sprintf('%s%s', $this->url, $query);
-    }
+		if (!empty($this->homeNumberAddition)) {
+			$addition = strtoupper($this->homeNumberAddition);
+
+			$arg_or[] = [
+				"huisnummertoevoeging:{$addition}",
+				"huisletter:{$addition}",
+			];
+		}
+
+		$arg_or = array_map(function ($group) {
+			return '( ' . implode(' or ', $group) . ' )';
+		}, $arg_or);
+
+		$query = implode(' and ', array_merge($arg_and, $arg_or));
+
+		return $this->url . urlencode($query);
+	}
 
     /**
      * Actually execute the remote request.
