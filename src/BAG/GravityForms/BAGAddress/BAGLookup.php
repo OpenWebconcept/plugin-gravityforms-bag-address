@@ -87,6 +87,32 @@ class BAGLookup
             ]);
         }
 
+        // If no addition was provided, try to find the result without any addition
+        if ($this->homeNumberAddition === '') {
+            $exactMatch = null;
+
+            foreach ($response->docs as $doc) {
+                if (!isset($doc->huisnummertoevoeging) && !isset($doc->huisletter)) {
+                    $exactMatch = $doc;
+                    break;
+                }
+            }
+
+            if ($exactMatch !== null) {
+                $address = new BAGEntity($exactMatch);
+                return \wp_send_json_success([
+                    'message' => __('1 result found', config('core.text_domain')),
+                    'results' => [
+                        'street'      => $address->straatnaam,
+                        'houseNumber' => $address->huisnummer,
+                        'city'        => $address->woonplaatsnaam,
+                        'zip'         => $address->postcode,
+                        'displayname' => $address->weergavenaam
+                    ]
+                ]);
+            }
+        }
+
         return wp_send_json_error(
             [
                 'message' => __('Found too many results. Try to make the address more specific. For example with a house number addition', config('core.text_domain')),
