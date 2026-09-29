@@ -46,7 +46,7 @@ jQuery(document).ready(function () {
 		if (e.key === 'Enter' || e.keyCode === 13) {
 			e.preventDefault();
 			e.stopPropagation();
-			
+
 			jQuery(this)
 				.closest('.gfield')
 				.find('input.js-bag-lookup[type="button"]')
@@ -114,13 +114,18 @@ jQuery(document).ready(function () {
 					container.find('.result').html(response.data.message);
 				}
 			},
-			complete: function () {
+			complete: function (xhr) {
+				var response = xhr.responseJSON;
+				var unique = Boolean(
+					response &&
+						response.success &&
+						response.data.results.length === 1
+				);
+
+				// Without a unique / single BAG match the user has to enter or correct street and city by hand.
 				container
-					.find("input[data-name='address']")
-					.prop('readonly', false);
-				container
-					.find("input[data-name='city']")
-					.prop('readonly', false);
+					.find("input[data-name='address'], input[data-name='city']")
+					.prop('readonly', unique);
 				button.val('Zoek').prop('disabled', false);
 			},
 		});

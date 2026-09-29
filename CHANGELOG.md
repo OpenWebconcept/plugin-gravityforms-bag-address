@@ -5,6 +5,10 @@ All notable changes to this plugin will be documented in this file.
 - requires: 4.9
 - tested: 6.9
 
+## v1.2.4 - 2026-09-29
+
+fix: keep street and city readonly when the bag lookup finds a unique / single match
+
 ## v1.2.3 - 2026-01-19
 
 fix: make sure .js-bag-lookup click handler works with dynamically rendered buttons
