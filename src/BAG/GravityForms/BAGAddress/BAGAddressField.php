@@ -117,7 +117,7 @@ class BAGAddressField extends GF_Field
     {
         wp_register_script('bag_address-js', plugin_dir_url(GF_BAG_FILE) . 'resources/js/bag-address.js', ['jquery'], GF_BAG_VERSION, true);
         wp_enqueue_script('bag_address-js');
-        wp_localize_script('bag_address-js', 'bag_address', ['ajaxurl' => admin_url('admin-ajax.php')]);
+        wp_localize_script('bag_address-js', 'bag_address', ['url' => rest_url(BAGLookup::REST_NAMESPACE . BAGLookup::REST_ROUTE)]);
 
         $output = implode(' ', array_map(function ($item) {
             return $item->render();
