@@ -5,6 +5,11 @@ All notable changes to this plugin will be documented in this file.
 - requires: 4.9
 - tested: 6.9
 
+## v1.3.0 - 2026-10-05
+
+fix: move the bag lookup from admin-ajax to a public REST route, so sites that IP-restrict wp-admin no longer block it
+change: the bag_address_lookup ajax action and bag_address.ajaxurl are replaced by owc-gravityforms-bag-address/v1/lookup and bag_address.url
+
 ## v1.2.4 - 2026-09-29
 
 fix: keep street and city readonly when the bag lookup finds a unique / single match

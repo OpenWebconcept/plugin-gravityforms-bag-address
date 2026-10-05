@@ -72,9 +72,8 @@ jQuery(document).ready(function () {
 		jQuery.ajax({
 			type: 'post',
 			dataType: 'json',
-			url: bag_address.ajaxurl,
+			url: bag_address.url,
 			data: {
-				action: 'bag_address_lookup',
 				zip: container.find("input[data-name='zip']").val(),
 				homeNumber: container
 					.find("input[data-name='homeNumber']")
